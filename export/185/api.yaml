@@ -22558,1082 +22558,6 @@ paths:
         '200':
           description: Any data can be posted to the endpoint - everything will be
             passed to the WebhookEndpoint model.
-  /plugin/inventree_approval/api/{id}/.:
-    get:
-      operationId: plugin_inventree_approval_api_._retrieve
-      description: API endpoint for detail view of an Approval object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      tags:
-      - plugin
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Approval'
-          description: ''
-    put:
-      operationId: plugin_inventree_approval_api_._update
-      description: API endpoint for detail view of an Approval object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Approval'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Approval'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Approval'
-        required: true
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Approval'
-          description: ''
-    patch:
-      operationId: plugin_inventree_approval_api_._partial_update
-      description: API endpoint for detail view of an Approval object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedApproval'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedApproval'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/PatchedApproval'
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Approval'
-          description: ''
-    delete:
-      operationId: plugin_inventree_approval_api_._destroy
-      description: API endpoint for detail view of an Approval object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      tags:
-      - plugin
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '204':
-          description: No response body
-  /plugin/inventree_approval/api/{id}/approve/:
-    post:
-      operationId: plugin_inventree_approval_api_approve_create
-      description: API endpoint to approve approval.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ApprovalApprove'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/ApprovalApprove'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/ApprovalApprove'
-        required: true
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '201':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApprovalApprove'
-          description: ''
-  /plugin/inventree_approval/api/{id}/decision/:
-    get:
-      operationId: plugin_inventree_approval_api_decision_list
-      description: API endpoint for listing all ApprovalDecision objects.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
-      tags:
-      - plugin
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PaginatedApprovalDecisionList'
-          description: ''
-    post:
-      operationId: plugin_inventree_approval_api_decision_create
-      description: API endpoint for listing all ApprovalDecision objects.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ApprovalDecision'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/ApprovalDecision'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/ApprovalDecision'
-        required: true
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '201':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApprovalDecision'
-          description: ''
-  /plugin/inventree_approval/api/{id}/decision/{id}/:
-    get:
-      operationId: plugin_inventree_approval_api_decision_retrieve
-      description: API endpoint for detail view of an ApprovalDecision object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      tags:
-      - plugin
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApprovalDecision'
-          description: ''
-    put:
-      operationId: plugin_inventree_approval_api_decision_update
-      description: API endpoint for detail view of an ApprovalDecision object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ApprovalDecision'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/ApprovalDecision'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/ApprovalDecision'
-        required: true
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApprovalDecision'
-          description: ''
-    patch:
-      operationId: plugin_inventree_approval_api_decision_partial_update
-      description: API endpoint for detail view of an ApprovalDecision object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedApprovalDecision'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedApprovalDecision'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/PatchedApprovalDecision'
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApprovalDecision'
-          description: ''
-    delete:
-      operationId: plugin_inventree_approval_api_decision_destroy
-      description: API endpoint for detail view of an ApprovalDecision object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      tags:
-      - plugin
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '204':
-          description: No response body
-  /plugin/inventree_approval/api/{id}/metadata/:
-    get:
-      operationId: plugin_inventree_approval_api_metadata_retrieve
-      description: Generic API endpoint for reading and editing metadata for a model.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      tags:
-      - plugin
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Metadata'
-          description: ''
-    put:
-      operationId: plugin_inventree_approval_api_metadata_update
-      description: Generic API endpoint for reading and editing metadata for a model.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Metadata'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Metadata'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Metadata'
-        required: true
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Metadata'
-          description: ''
-    patch:
-      operationId: plugin_inventree_approval_api_metadata_partial_update
-      description: Generic API endpoint for reading and editing metadata for a model.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedMetadata'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedMetadata'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/PatchedMetadata'
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Metadata'
-          description: ''
-  /plugin/inventree_approval/api/{type}:{id}/.:
-    get:
-      operationId: plugin_inventree_approval_api_:_._retrieve
-      description: API endpoint for detail view of an Approval object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      - in: path
-        name: type
-        schema:
-          type: string
-        required: true
-      tags:
-      - plugin
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Approval'
-          description: ''
-    put:
-      operationId: plugin_inventree_approval_api_:_._update
-      description: API endpoint for detail view of an Approval object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      - in: path
-        name: type
-        schema:
-          type: string
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Approval'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Approval'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Approval'
-        required: true
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Approval'
-          description: ''
-    patch:
-      operationId: plugin_inventree_approval_api_:_._partial_update
-      description: API endpoint for detail view of an Approval object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      - in: path
-        name: type
-        schema:
-          type: string
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedApproval'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedApproval'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/PatchedApproval'
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Approval'
-          description: ''
-    delete:
-      operationId: plugin_inventree_approval_api_:_._destroy
-      description: API endpoint for detail view of an Approval object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      - in: path
-        name: type
-        schema:
-          type: string
-        required: true
-      tags:
-      - plugin
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '204':
-          description: No response body
-  /plugin/inventree_approval/api/{type}:{id}/approve/:
-    post:
-      operationId: plugin_inventree_approval_api_:_approve_create
-      description: API endpoint to approve approval.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      - in: path
-        name: type
-        schema:
-          type: string
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ApprovalApprove'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/ApprovalApprove'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/ApprovalApprove'
-        required: true
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '201':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApprovalApprove'
-          description: ''
-  /plugin/inventree_approval/api/{type}:{id}/decision/:
-    get:
-      operationId: plugin_inventree_approval_api_:_decision_list
-      description: API endpoint for listing all ApprovalDecision objects.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
-      - in: path
-        name: type
-        schema:
-          type: string
-        required: true
-      tags:
-      - plugin
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PaginatedApprovalDecisionList'
-          description: ''
-    post:
-      operationId: plugin_inventree_approval_api_:_decision_create
-      description: API endpoint for listing all ApprovalDecision objects.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      - in: path
-        name: type
-        schema:
-          type: string
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ApprovalDecision'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/ApprovalDecision'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/ApprovalDecision'
-        required: true
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '201':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApprovalDecision'
-          description: ''
-  /plugin/inventree_approval/api/{type}:{id}/decision/{id}/:
-    get:
-      operationId: plugin_inventree_approval_api_:_decision_retrieve
-      description: API endpoint for detail view of an ApprovalDecision object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      - in: path
-        name: type
-        schema:
-          type: string
-        required: true
-      tags:
-      - plugin
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApprovalDecision'
-          description: ''
-    put:
-      operationId: plugin_inventree_approval_api_:_decision_update
-      description: API endpoint for detail view of an ApprovalDecision object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      - in: path
-        name: type
-        schema:
-          type: string
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ApprovalDecision'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/ApprovalDecision'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/ApprovalDecision'
-        required: true
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApprovalDecision'
-          description: ''
-    patch:
-      operationId: plugin_inventree_approval_api_:_decision_partial_update
-      description: API endpoint for detail view of an ApprovalDecision object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      - in: path
-        name: type
-        schema:
-          type: string
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedApprovalDecision'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedApprovalDecision'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/PatchedApprovalDecision'
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApprovalDecision'
-          description: ''
-    delete:
-      operationId: plugin_inventree_approval_api_:_decision_destroy
-      description: API endpoint for detail view of an ApprovalDecision object.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      - in: path
-        name: type
-        schema:
-          type: string
-        required: true
-      tags:
-      - plugin
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '204':
-          description: No response body
-  /plugin/inventree_approval/api/{type}:{id}/metadata/:
-    get:
-      operationId: plugin_inventree_approval_api_:_metadata_retrieve
-      description: Generic API endpoint for reading and editing metadata for a model.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      - in: path
-        name: type
-        schema:
-          type: string
-        required: true
-      tags:
-      - plugin
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Metadata'
-          description: ''
-    put:
-      operationId: plugin_inventree_approval_api_:_metadata_update
-      description: Generic API endpoint for reading and editing metadata for a model.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      - in: path
-        name: type
-        schema:
-          type: string
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Metadata'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Metadata'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Metadata'
-        required: true
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Metadata'
-          description: ''
-    patch:
-      operationId: plugin_inventree_approval_api_:_metadata_partial_update
-      description: Generic API endpoint for reading and editing metadata for a model.
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: integer
-        required: true
-      - in: path
-        name: type
-        schema:
-          type: string
-        required: true
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedMetadata'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedMetadata'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/PatchedMetadata'
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Metadata'
-          description: ''
-  /plugin/inventree_approval/api/.:
-    get:
-      operationId: plugin_inventree_approval_api_._list
-      description: API endpoint for listing all Approval objects.
-      parameters:
-      - in: query
-        name: content_type
-        schema:
-          type: integer
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - in: query
-        name: object_id
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
-      - name: ordering
-        required: false
-        in: query
-        description: Which field to use when ordering the results.
-        schema:
-          type: string
-      - in: query
-        name: owner
-        schema:
-          type: integer
-      - name: search
-        required: false
-        in: query
-        description: A search term.
-        schema:
-          type: string
-      - in: query
-        name: status
-        schema:
-          type: integer
-          enum:
-          - 0
-          - 10
-          - 20
-          - 30
-          - 40
-          - 50
-        description: |-
-          Approval status
-
-          * `0` - New
-          * `10` - Pending
-          * `20` - Approved
-          * `30` - Rejected
-          * `40` - Cancelled
-          * `50` - Expired
-      tags:
-      - plugin
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PaginatedApprovalList'
-          description: ''
-    post:
-      operationId: plugin_inventree_approval_api_._create
-      description: API endpoint for listing all Approval objects.
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Approval'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Approval'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Approval'
-        required: true
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '201':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Approval'
-          description: ''
-  /plugin/inventree_approval/api/permissions/.:
-    get:
-      operationId: plugin_inventree_approval_api_permissions_._list
-      description: API endpoint for listing permission objects.
-      parameters:
-      - name: limit
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: offset
-        required: false
-        in: query
-        description: The initial index from which to return the results.
-        schema:
-          type: integer
-      tags:
-      - plugin
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PaginatedPermissionList'
-          description: ''
-    put:
-      operationId: plugin_inventree_approval_api_permissions_._update
-      description: API endpoint for listing permission objects.
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Permission'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Permission'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/Permission'
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Permission'
-          description: ''
-    patch:
-      operationId: plugin_inventree_approval_api_permissions_._partial_update
-      description: API endpoint for listing permission objects.
-      tags:
-      - plugin
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedPermission'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedPermission'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/PatchedPermission'
-      security:
-      - tokenAuth: []
-      - basicAuth: []
-      - cookieAuth: []
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Permission'
-          description: ''
 components:
   schemas:
     APISearchView:
@@ -23791,165 +22715,6 @@ components:
           maxLength: 100
       required:
       - pk
-    Approval:
-      type: object
-      description: Serializes an Approval object.
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        status_text:
-          type: string
-          readOnly: true
-        content_object:
-          type: string
-          readOnly: true
-        content_model:
-          type: string
-          description: Get the content model name.
-          readOnly: true
-        model:
-          type: string
-          writeOnly: true
-        decisions:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApprovalDecision'
-          readOnly: true
-        creation_date:
-          type: string
-          format: date-time
-        modified_date:
-          type: string
-          format: date-time
-        finalised_date:
-          type: string
-          format: date-time
-        finalised:
-          type: boolean
-        name:
-          type: string
-          maxLength: 255
-        description:
-          type: string
-        reference:
-          type: string
-          maxLength: 100
-        status:
-          allOf:
-          - $ref: '#/components/schemas/ApprovalStatusEnum'
-          description: |-
-            Approval status
-
-            * `0` - New
-            * `10` - Pending
-            * `20` - Approved
-            * `30` - Rejected
-            * `40` - Cancelled
-            * `50` - Expired
-          minimum: 0
-        object_id:
-          type: integer
-        created_by:
-          type: integer
-          nullable: true
-        modified_by:
-          type: integer
-          nullable: true
-          title: Last modified by
-        finalised_by:
-          type: integer
-          nullable: true
-        responsible:
-          type: integer
-          nullable: true
-          description: User or group responsible for this approval
-        owner:
-          type: integer
-          nullable: true
-          description: User or group that owns this approval
-        content_type:
-          type: integer
-      required:
-      - content_model
-      - content_object
-      - content_type
-      - decisions
-      - id
-      - name
-      - object_id
-      - status_text
-    ApprovalApprove:
-      type: object
-      description: Serializes an ApprovalDecision object.
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        date:
-          type: string
-          format: date-time
-          readOnly: true
-        decision:
-          type: boolean
-        comment:
-          type: string
-        approval:
-          type: integer
-        user:
-          type: integer
-      required:
-      - approval
-      - date
-      - decision
-      - id
-      - user
-    ApprovalDecision:
-      type: object
-      description: Serializes an ApprovalDecision object.
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        user_detail:
-          allOf:
-          - $ref: '#/components/schemas/User'
-          readOnly: true
-        date:
-          type: string
-          format: date-time
-          readOnly: true
-        decision:
-          type: boolean
-        comment:
-          type: string
-        approval:
-          type: integer
-        user:
-          type: integer
-      required:
-      - approval
-      - date
-      - decision
-      - id
-      - user
-      - user_detail
-    ApprovalStatusEnum:
-      enum:
-      - 0
-      - 10
-      - 20
-      - 30
-      - 40
-      - 50
-      type: integer
-      description: |-
-        * `0` - New
-        * `10` - Pending
-        * `20` - Approved
-        * `30` - Rejected
-        * `40` - Cancelled
-        * `50` - Expired
     BOMReport:
       type: object
       description: Serializer class for the BillOfMaterialsReport model.
@@ -24025,14 +22790,14 @@ components:
           type: integer
           nullable: true
           title: Build Order
-        manufacturerpart:
-          type: integer
-          nullable: true
-          title: manufacturer part
         supplierpart:
           type: integer
           nullable: true
           title: supplier part
+        manufacturerpart:
+          type: integer
+          nullable: true
+          title: manufacturer part
         purchaseorder:
           type: integer
           nullable: true
@@ -24048,14 +22813,14 @@ components:
         part:
           type: integer
           nullable: true
-        stocklocation:
-          type: integer
-          nullable: true
-          title: Stock Location
         stockitem:
           type: integer
           nullable: true
           title: stock item
+        stocklocation:
+          type: integer
+          nullable: true
+          title: Stock Location
       required:
       - barcode
     BarcodePOAllocate:
@@ -24135,14 +22900,14 @@ components:
           type: integer
           nullable: true
           title: Build Order
-        manufacturerpart:
-          type: integer
-          nullable: true
-          title: manufacturer part
         supplierpart:
           type: integer
           nullable: true
           title: supplier part
+        manufacturerpart:
+          type: integer
+          nullable: true
+          title: manufacturer part
         purchaseorder:
           type: integer
           nullable: true
@@ -24158,14 +22923,14 @@ components:
         part:
           type: integer
           nullable: true
-        stocklocation:
-          type: integer
-          nullable: true
-          title: Stock Location
         stockitem:
           type: integer
           nullable: true
           title: stock item
+        stocklocation:
+          type: integer
+          nullable: true
+          title: Stock Location
     BlankEnum:
       enum:
       - ''
@@ -25167,7 +23932,11 @@ components:
             Default currency used for this supplier
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         contact:
@@ -26444,46 +25213,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Address'
-    PaginatedApprovalDecisionList:
-      type: object
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApprovalDecision'
-    PaginatedApprovalList:
-      type: object
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Approval'
     PaginatedBOMReportList:
       type: object
       properties:
@@ -27384,26 +26113,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PendingTask'
-    PaginatedPermissionList:
-      type: object
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Permission'
     PaginatedPluginConfigList:
       type: object
       properties:
@@ -28584,7 +27293,11 @@ components:
             Purchase currency of this stock item
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
       required:
@@ -28915,7 +27628,11 @@ components:
             Purchase currency of this stock item
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
       required:
@@ -28972,7 +27689,11 @@ components:
             Select currency from available options
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         cost_max:
@@ -28988,7 +27709,11 @@ components:
             Select currency from available options
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         note:
@@ -29251,104 +27976,6 @@ components:
           format: uri
           description: Link to address information (external)
           maxLength: 200
-    PatchedApproval:
-      type: object
-      description: Serializes an Approval object.
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        status_text:
-          type: string
-          readOnly: true
-        content_object:
-          type: string
-          readOnly: true
-        content_model:
-          type: string
-          description: Get the content model name.
-          readOnly: true
-        model:
-          type: string
-          writeOnly: true
-        decisions:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApprovalDecision'
-          readOnly: true
-        creation_date:
-          type: string
-          format: date-time
-        modified_date:
-          type: string
-          format: date-time
-        finalised_date:
-          type: string
-          format: date-time
-        finalised:
-          type: boolean
-        name:
-          type: string
-          maxLength: 255
-        description:
-          type: string
-        reference:
-          type: string
-          maxLength: 100
-        status:
-          allOf:
-          - $ref: '#/components/schemas/ApprovalStatusEnum'
-          description: |-
-            Approval status
-
-            * `0` - New
-            * `10` - Pending
-            * `20` - Approved
-            * `30` - Rejected
-            * `40` - Cancelled
-            * `50` - Expired
-          minimum: 0
-        object_id:
-          type: integer
-        created_by:
-          type: integer
-          nullable: true
-        modified_by:
-          type: integer
-          nullable: true
-          title: Last modified by
-        finalised_by:
-          type: integer
-          nullable: true
-        responsible:
-          type: integer
-          nullable: true
-          description: User or group responsible for this approval
-        owner:
-          type: integer
-          nullable: true
-          description: User or group that owns this approval
-        content_type:
-          type: integer
-    PatchedApprovalDecision:
-      type: object
-      description: Serializes an ApprovalDecision object.
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        date:
-          type: string
-          format: date-time
-          readOnly: true
-        decision:
-          type: boolean
-        comment:
-          type: string
-        approval:
-          type: integer
-        user:
-          type: integer
     PatchedBOMReport:
       type: object
       description: Serializer class for the BillOfMaterialsReport model.
@@ -29986,7 +28613,11 @@ components:
             Default currency used for this supplier
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         contact:
@@ -30903,7 +29534,11 @@ components:
             Purchase currency of this stock item
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
     PatchedPartLabel:
@@ -31190,7 +29825,11 @@ components:
             Purchase currency of this stock item
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
     PatchedPartStocktake:
@@ -31228,7 +29867,11 @@ components:
             Select currency from available options
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         cost_max:
@@ -31244,7 +29887,11 @@ components:
             Select currency from available options
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         note:
@@ -31308,19 +29955,6 @@ components:
         image:
           type: string
           format: uri
-    PatchedPermission:
-      type: object
-      description: Serializes an Permission object.
-      properties:
-        name:
-          type: string
-          readOnly: true
-        view:
-          type: boolean
-          readOnly: true
-        edit:
-          type: boolean
-          readOnly: true
     PatchedPluginActivate:
       type: object
       description: Serializer for activating or deactivating a plugin.
@@ -31578,7 +30212,11 @@ components:
 
             * `` - ---------
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
           oneOf:
@@ -31664,7 +30302,11 @@ components:
             Select currency from available options
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         link:
@@ -31720,7 +30362,11 @@ components:
             Purchase price currency
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         auto_pricing:
@@ -31918,7 +30564,11 @@ components:
 
             * `` - ---------
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
           oneOf:
@@ -32010,7 +30660,11 @@ components:
             Select currency from available options
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         link:
@@ -32066,7 +30720,11 @@ components:
             Line price currency
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         link:
@@ -32231,7 +30889,11 @@ components:
 
             * `` - ---------
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
           oneOf:
@@ -32363,7 +31025,11 @@ components:
             Select currency from available options
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         link:
@@ -32425,7 +31091,11 @@ components:
             Sale price currency
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         shipped:
@@ -32685,7 +31355,11 @@ components:
             Purchase currency of this stock item
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         use_pack_size:
@@ -33073,7 +31747,11 @@ components:
             Select currency from available options
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         supplier:
@@ -33229,23 +31907,6 @@ components:
       - name
       - pk
       - task_id
-    Permission:
-      type: object
-      description: Serializes an Permission object.
-      properties:
-        name:
-          type: string
-          readOnly: true
-        view:
-          type: boolean
-          readOnly: true
-        edit:
-          type: boolean
-          readOnly: true
-      required:
-      - edit
-      - name
-      - view
     PluginActivate:
       type: object
       description: Serializer for activating or deactivating a plugin.
@@ -33619,7 +32280,11 @@ components:
 
             * `` - ---------
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
           oneOf:
@@ -33735,7 +32400,11 @@ components:
             Select currency from available options
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         link:
@@ -33795,7 +32464,11 @@ components:
             Purchase price currency
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         auto_pricing:
@@ -34098,7 +32771,11 @@ components:
 
             * `` - ---------
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
           oneOf:
@@ -34209,7 +32886,11 @@ components:
             Select currency from available options
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         link:
@@ -34269,7 +32950,11 @@ components:
             Line price currency
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         link:
@@ -34372,13 +33057,21 @@ components:
     SalePriceCurrencyEnum:
       enum:
       - AUD
+      - CAD
+      - CNY
       - EUR
+      - GBP
+      - JPY
       - NZD
       - USD
       type: string
       description: |-
         * `AUD` - Australian Dollar
+        * `CAD` - Canadian Dollar
+        * `CNY` - Chinese Yuan
         * `EUR` - Euro
+        * `GBP` - British Pound
+        * `JPY` - Japanese Yen
         * `NZD` - New Zealand Dollar
         * `USD` - US Dollar
     SalesOrder:
@@ -34491,7 +33184,11 @@ components:
 
             * `` - ---------
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
           oneOf:
@@ -34654,7 +33351,11 @@ components:
             Select currency from available options
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         link:
@@ -34720,7 +33421,11 @@ components:
             Sale price currency
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         shipped:
@@ -35411,7 +34116,11 @@ components:
             Purchase currency of this stock item
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         use_pack_size:
@@ -35991,7 +34700,11 @@ components:
             Select currency from available options
 
             * `AUD` - Australian Dollar
+            * `CAD` - Canadian Dollar
+            * `CNY` - Chinese Yuan
             * `EUR` - Euro
+            * `GBP` - British Pound
+            * `JPY` - Japanese Yen
             * `NZD` - New Zealand Dollar
             * `USD` - US Dollar
         supplier:
@@ -36313,6 +35026,8 @@ components:
       in: header
       name: Authorization
       description: Token-based authentication with required prefix "Token"
+servers:
+- url: http://localhost:8000
 externalDocs:
   description: More information about InvenTree in the official docs
   url: https://docs.inventree.org
