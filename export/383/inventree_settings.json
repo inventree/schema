@@ -1,0 +1,1062 @@
+{
+    "global": {
+        "SERVER_RESTART_REQUIRED": {
+            "name": "Restart required",
+            "description": "A setting has been changed which requires a server restart",
+            "default": "False",
+            "units": ""
+        },
+        "_PENDING_MIGRATIONS": {
+            "name": "Pending migrations",
+            "description": "Number of pending database migrations",
+            "default": "0",
+            "units": ""
+        },
+        "_GLOBAL_WARNING": {
+            "name": "Active warning codes",
+            "description": "A dict of active warning codes",
+            "default": "{}",
+            "units": ""
+        },
+        "INVENTREE_INSTANCE_ID": {
+            "name": "Instance ID",
+            "description": "Unique identifier for this InvenTree instance",
+            "default": "474fd109-5420-412c-a5d3-89687773590c",
+            "units": ""
+        },
+        "INVENTREE_ANNOUNCE_ID": {
+            "name": "Announce ID",
+            "description": "Announce the instance ID of the server in the server status info (unauthenticated)",
+            "default": "False",
+            "units": ""
+        },
+        "INVENTREE_INSTANCE": {
+            "name": "Server Instance Name",
+            "description": "String descriptor for the server instance",
+            "default": "InvenTree",
+            "units": ""
+        },
+        "INVENTREE_INSTANCE_TITLE": {
+            "name": "Use instance name",
+            "description": "Use the instance name in the title-bar",
+            "default": "False",
+            "units": ""
+        },
+        "INVENTREE_RESTRICT_ABOUT": {
+            "name": "Restrict showing `about`",
+            "description": "Show the `about` modal only to superusers",
+            "default": "False",
+            "units": ""
+        },
+        "INVENTREE_COMPANY_NAME": {
+            "name": "Company name",
+            "description": "Internal company name",
+            "default": "My company name",
+            "units": ""
+        },
+        "INVENTREE_BASE_URL": {
+            "name": "Base URL",
+            "description": "Base URL for server instance",
+            "default": "http://localhost:8000",
+            "units": ""
+        },
+        "INVENTREE_DEFAULT_CURRENCY": {
+            "name": "Default Currency",
+            "description": "Select base currency for pricing calculations",
+            "default": "USD",
+            "units": ""
+        },
+        "CURRENCY_CODES": {
+            "name": "Supported Currencies",
+            "description": "List of supported currency codes",
+            "default": "AUD,CAD,CNY,EUR,GBP,JPY,NZD,USD",
+            "units": ""
+        },
+        "CURRENCY_UPDATE_INTERVAL": {
+            "name": "Currency Update Interval",
+            "description": "How often to update exchange rates (set to zero to disable)",
+            "default": "1",
+            "units": "days"
+        },
+        "CURRENCY_UPDATE_PLUGIN": {
+            "name": "Currency Update Plugin",
+            "description": "Currency update plugin to use",
+            "default": "inventreecurrencyexchange",
+            "units": ""
+        },
+        "INVENTREE_DOWNLOAD_FROM_URL": {
+            "name": "Download from URL",
+            "description": "Allow download of remote images and files from external URL",
+            "default": "False",
+            "units": ""
+        },
+        "INVENTREE_DOWNLOAD_IMAGE_MAX_SIZE": {
+            "name": "Download Size Limit",
+            "description": "Maximum allowable download size for remote image",
+            "default": "1",
+            "units": "MB"
+        },
+        "INVENTREE_DOWNLOAD_FROM_URL_USER_AGENT": {
+            "name": "User-agent used to download from URL",
+            "description": "Allow to override the user-agent used to download images and files from external URL (leave blank for the default)",
+            "default": "",
+            "units": ""
+        },
+        "INVENTREE_STRICT_URLS": {
+            "name": "Strict URL Validation",
+            "description": "Require schema specification when validating URLs",
+            "default": "True",
+            "units": ""
+        },
+        "INVENTREE_UPDATE_CHECK_INTERVAL": {
+            "name": "Update Check Interval",
+            "description": "How often to check for updates (set to zero to disable)",
+            "default": "7",
+            "units": "days"
+        },
+        "INVENTREE_BACKUP_ENABLE": {
+            "name": "Automatic Backup",
+            "description": "Enable automatic backup of database and media files",
+            "default": "False",
+            "units": ""
+        },
+        "INVENTREE_BACKUP_DAYS": {
+            "name": "Auto Backup Interval",
+            "description": "Specify number of days between automated backup events",
+            "default": "1",
+            "units": "days"
+        },
+        "INVENTREE_DELETE_TASKS_DAYS": {
+            "name": "Task Deletion Interval",
+            "description": "Background task results will be deleted after specified number of days",
+            "default": "30",
+            "units": "days"
+        },
+        "INVENTREE_DELETE_ERRORS_DAYS": {
+            "name": "Error Log Deletion Interval",
+            "description": "Error logs will be deleted after specified number of days",
+            "default": "30",
+            "units": "days"
+        },
+        "INVENTREE_DELETE_NOTIFICATIONS_DAYS": {
+            "name": "Notification Deletion Interval",
+            "description": "User notifications will be deleted after specified number of days",
+            "default": "30",
+            "units": "days"
+        },
+        "INVENTREE_DELETE_EMAIL_DAYS": {
+            "name": "Email Deletion Interval",
+            "description": "Email messages will be deleted after specified number of days",
+            "default": "30",
+            "units": "days"
+        },
+        "INVENTREE_PROTECT_EMAIL_LOG": {
+            "name": "Protect Email Log",
+            "description": "Prevent deletion of email log entries",
+            "default": "False",
+            "units": ""
+        },
+        "BARCODE_ENABLE": {
+            "name": "Barcode Support",
+            "description": "Enable barcode scanner support in the web interface",
+            "default": "True",
+            "units": ""
+        },
+        "BARCODE_STORE_RESULTS": {
+            "name": "Store Barcode Results",
+            "description": "Store barcode scan results in the database",
+            "default": "False",
+            "units": ""
+        },
+        "BARCODE_RESULTS_MAX_NUM": {
+            "name": "Barcode Scans Maximum Count",
+            "description": "Maximum number of barcode scan results to store",
+            "default": "100",
+            "units": ""
+        },
+        "BARCODE_INPUT_DELAY": {
+            "name": "Barcode Input Delay",
+            "description": "Barcode input processing delay time",
+            "default": "50",
+            "units": "ms"
+        },
+        "BARCODE_WEBCAM_SUPPORT": {
+            "name": "Barcode Webcam Support",
+            "description": "Allow barcode scanning via webcam in browser",
+            "default": "True",
+            "units": ""
+        },
+        "BARCODE_SHOW_TEXT": {
+            "name": "Barcode Show Data",
+            "description": "Display barcode data in browser as text",
+            "default": "False",
+            "units": ""
+        },
+        "BARCODE_GENERATION_PLUGIN": {
+            "name": "Barcode Generation Plugin",
+            "description": "Plugin to use for internal barcode data generation",
+            "default": "inventreebarcode",
+            "units": ""
+        },
+        "PART_ENABLE_REVISION": {
+            "name": "Part Revisions",
+            "description": "Enable revision field for Part",
+            "default": "True",
+            "units": ""
+        },
+        "PART_REVISION_ASSEMBLY_ONLY": {
+            "name": "Assembly Revision Only",
+            "description": "Only allow revisions for assembly parts",
+            "default": "False",
+            "units": ""
+        },
+        "PART_ALLOW_DELETE_FROM_ASSEMBLY": {
+            "name": "Allow Deletion from Assembly",
+            "description": "Allow deletion of parts which are used in an assembly",
+            "default": "False",
+            "units": ""
+        },
+        "PART_IPN_REGEX": {
+            "name": "IPN Regex",
+            "description": "Regular expression pattern for matching Part IPN",
+            "default": "",
+            "units": ""
+        },
+        "PART_ALLOW_DUPLICATE_IPN": {
+            "name": "Allow Duplicate IPN",
+            "description": "Allow multiple parts to share the same IPN",
+            "default": "True",
+            "units": ""
+        },
+        "PART_ALLOW_EDIT_IPN": {
+            "name": "Allow Editing IPN",
+            "description": "Allow changing the IPN value while editing a part",
+            "default": "True",
+            "units": ""
+        },
+        "PART_COPY_BOM": {
+            "name": "Copy Part BOM Data",
+            "description": "Copy BOM data by default when duplicating a part",
+            "default": "True",
+            "units": ""
+        },
+        "PART_COPY_PARAMETERS": {
+            "name": "Copy Part Parameter Data",
+            "description": "Copy parameter data by default when duplicating a part",
+            "default": "True",
+            "units": ""
+        },
+        "PART_COPY_TESTS": {
+            "name": "Copy Part Test Data",
+            "description": "Copy test data by default when duplicating a part",
+            "default": "True",
+            "units": ""
+        },
+        "PART_CATEGORY_PARAMETERS": {
+            "name": "Copy Category Parameter Templates",
+            "description": "Copy category parameter templates when creating a part",
+            "default": "True",
+            "units": ""
+        },
+        "PART_TEMPLATE": {
+            "name": "Template",
+            "description": "Parts are templates by default",
+            "default": "False",
+            "units": ""
+        },
+        "PART_ASSEMBLY": {
+            "name": "Assembly",
+            "description": "Parts can be assembled from other components by default",
+            "default": "False",
+            "units": ""
+        },
+        "PART_COMPONENT": {
+            "name": "Component",
+            "description": "Parts can be used as sub-components by default",
+            "default": "True",
+            "units": ""
+        },
+        "PART_PURCHASEABLE": {
+            "name": "Purchaseable",
+            "description": "Parts are purchaseable by default",
+            "default": "True",
+            "units": ""
+        },
+        "PART_SALABLE": {
+            "name": "Salable",
+            "description": "Parts are salable by default",
+            "default": "False",
+            "units": ""
+        },
+        "PART_TRACKABLE": {
+            "name": "Trackable",
+            "description": "Parts are trackable by default",
+            "default": "False",
+            "units": ""
+        },
+        "PART_VIRTUAL": {
+            "name": "Virtual",
+            "description": "Parts are virtual by default",
+            "default": "False",
+            "units": ""
+        },
+        "PART_SHOW_RELATED": {
+            "name": "Show related parts",
+            "description": "Display related parts for a part",
+            "default": "True",
+            "units": ""
+        },
+        "PART_CREATE_INITIAL": {
+            "name": "Initial Stock Data",
+            "description": "Allow creation of initial stock when adding a new part",
+            "default": "False",
+            "units": ""
+        },
+        "PART_CREATE_SUPPLIER": {
+            "name": "Initial Supplier Data",
+            "description": "Allow creation of initial supplier data when adding a new part",
+            "default": "True",
+            "units": ""
+        },
+        "PART_NAME_FORMAT": {
+            "name": "Part Name Display Format",
+            "description": "Format to display the part name",
+            "default": "{{ part.IPN if part.IPN }}{{ ' | ' if part.IPN }}{{ part.name }}{{ ' | ' if part.revision }}{{ part.revision if part.revision }}",
+            "units": ""
+        },
+        "PART_CATEGORY_DEFAULT_ICON": {
+            "name": "Part Category Default Icon",
+            "description": "Part category default icon (empty means no icon)",
+            "default": "",
+            "units": ""
+        },
+        "PART_PARAMETER_ENFORCE_UNITS": {
+            "name": "Enforce Parameter Units",
+            "description": "If units are provided, parameter values must match the specified units",
+            "default": "True",
+            "units": ""
+        },
+        "PRICING_DECIMAL_PLACES_MIN": {
+            "name": "Minimum Pricing Decimal Places",
+            "description": "Minimum number of decimal places to display when rendering pricing data",
+            "default": "0",
+            "units": ""
+        },
+        "PRICING_DECIMAL_PLACES": {
+            "name": "Maximum Pricing Decimal Places",
+            "description": "Maximum number of decimal places to display when rendering pricing data",
+            "default": "6",
+            "units": ""
+        },
+        "PRICING_USE_SUPPLIER_PRICING": {
+            "name": "Use Supplier Pricing",
+            "description": "Include supplier price breaks in overall pricing calculations",
+            "default": "True",
+            "units": ""
+        },
+        "PRICING_PURCHASE_HISTORY_OVERRIDES_SUPPLIER": {
+            "name": "Purchase History Override",
+            "description": "Historical purchase order pricing overrides supplier price breaks",
+            "default": "False",
+            "units": ""
+        },
+        "PRICING_USE_STOCK_PRICING": {
+            "name": "Use Stock Item Pricing",
+            "description": "Use pricing from manually entered stock data for pricing calculations",
+            "default": "True",
+            "units": ""
+        },
+        "PRICING_STOCK_ITEM_AGE_DAYS": {
+            "name": "Stock Item Pricing Age",
+            "description": "Exclude stock items older than this number of days from pricing calculations",
+            "default": "0",
+            "units": "days"
+        },
+        "PRICING_USE_VARIANT_PRICING": {
+            "name": "Use Variant Pricing",
+            "description": "Include variant pricing in overall pricing calculations",
+            "default": "True",
+            "units": ""
+        },
+        "PRICING_ACTIVE_VARIANTS": {
+            "name": "Active Variants Only",
+            "description": "Only use active variant parts for calculating variant pricing",
+            "default": "False",
+            "units": ""
+        },
+        "PRICING_AUTO_UPDATE": {
+            "name": "Auto Update Pricing",
+            "description": "Automatically update part pricing when internal data changes",
+            "default": "True",
+            "units": ""
+        },
+        "PRICING_UPDATE_DAYS": {
+            "name": "Pricing Rebuild Interval",
+            "description": "Number of days before part pricing is automatically updated",
+            "default": "30",
+            "units": "days"
+        },
+        "PART_INTERNAL_PRICE": {
+            "name": "Internal Prices",
+            "description": "Enable internal prices for parts",
+            "default": "False",
+            "units": ""
+        },
+        "PART_BOM_USE_INTERNAL_PRICE": {
+            "name": "Internal Price Override",
+            "description": "If available, internal prices override price range calculations",
+            "default": "False",
+            "units": ""
+        },
+        "LABEL_ENABLE": {
+            "name": "Enable label printing",
+            "description": "Enable label printing from the web interface",
+            "default": "True",
+            "units": ""
+        },
+        "LABEL_DPI": {
+            "name": "Label Image DPI",
+            "description": "DPI resolution when generating image files to supply to label printing plugins",
+            "default": "300",
+            "units": ""
+        },
+        "REPORT_ENABLE": {
+            "name": "Enable Reports",
+            "description": "Enable generation of reports",
+            "default": "False",
+            "units": ""
+        },
+        "REPORT_DEBUG_MODE": {
+            "name": "Debug Mode",
+            "description": "Generate reports in debug mode (HTML output)",
+            "default": "False",
+            "units": ""
+        },
+        "REPORT_LOG_ERRORS": {
+            "name": "Log Report Errors",
+            "description": "Log errors which occur when generating reports",
+            "default": "False",
+            "units": ""
+        },
+        "REPORT_DEFAULT_PAGE_SIZE": {
+            "name": "Page Size",
+            "description": "Default page size for PDF reports",
+            "default": "A4",
+            "units": ""
+        },
+        "SERIAL_NUMBER_GLOBALLY_UNIQUE": {
+            "name": "Globally Unique Serials",
+            "description": "Serial numbers for stock items must be globally unique",
+            "default": "False",
+            "units": ""
+        },
+        "STOCK_DELETE_DEPLETED_DEFAULT": {
+            "name": "Delete Depleted Stock",
+            "description": "Determines default behavior when a stock item is depleted",
+            "default": "True",
+            "units": ""
+        },
+        "STOCK_BATCH_CODE_TEMPLATE": {
+            "name": "Batch Code Template",
+            "description": "Template for generating default batch codes for stock items",
+            "default": "",
+            "units": ""
+        },
+        "STOCK_ENABLE_EXPIRY": {
+            "name": "Stock Expiry",
+            "description": "Enable stock expiry functionality",
+            "default": "False",
+            "units": ""
+        },
+        "STOCK_ALLOW_EXPIRED_SALE": {
+            "name": "Sell Expired Stock",
+            "description": "Allow sale of expired stock",
+            "default": "False",
+            "units": ""
+        },
+        "STOCK_STALE_DAYS": {
+            "name": "Stock Stale Time",
+            "description": "Number of days stock items are considered stale before expiring",
+            "default": "0",
+            "units": "days"
+        },
+        "STOCK_ALLOW_EXPIRED_BUILD": {
+            "name": "Build Expired Stock",
+            "description": "Allow building with expired stock",
+            "default": "False",
+            "units": ""
+        },
+        "STOCK_OWNERSHIP_CONTROL": {
+            "name": "Stock Ownership Control",
+            "description": "Enable ownership control over stock locations and items",
+            "default": "False",
+            "units": ""
+        },
+        "STOCK_LOCATION_DEFAULT_ICON": {
+            "name": "Stock Location Default Icon",
+            "description": "Stock location default icon (empty means no icon)",
+            "default": "",
+            "units": ""
+        },
+        "STOCK_SHOW_INSTALLED_ITEMS": {
+            "name": "Show Installed Stock Items",
+            "description": "Display installed stock items in stock tables",
+            "default": "False",
+            "units": ""
+        },
+        "STOCK_ENFORCE_BOM_INSTALLATION": {
+            "name": "Check BOM when installing items",
+            "description": "Installed stock items must exist in the BOM for the parent part",
+            "default": "True",
+            "units": ""
+        },
+        "STOCK_ALLOW_OUT_OF_STOCK_TRANSFER": {
+            "name": "Allow Out of Stock Transfer",
+            "description": "Allow stock items which are not in stock to be transferred between stock locations",
+            "default": "False",
+            "units": ""
+        },
+        "BUILDORDER_REFERENCE_PATTERN": {
+            "name": "Build Order Reference Pattern",
+            "description": "Required pattern for generating Build Order reference field",
+            "default": "BO-{ref:04d}",
+            "units": ""
+        },
+        "BUILDORDER_REQUIRE_RESPONSIBLE": {
+            "name": "Require Responsible Owner",
+            "description": "A responsible owner must be assigned to each order",
+            "default": "False",
+            "units": ""
+        },
+        "BUILDORDER_REQUIRE_ACTIVE_PART": {
+            "name": "Require Active Part",
+            "description": "Prevent build order creation for inactive parts",
+            "default": "False",
+            "units": ""
+        },
+        "BUILDORDER_REQUIRE_LOCKED_PART": {
+            "name": "Require Locked Part",
+            "description": "Prevent build order creation for unlocked parts",
+            "default": "False",
+            "units": ""
+        },
+        "BUILDORDER_REQUIRE_VALID_BOM": {
+            "name": "Require Valid BOM",
+            "description": "Prevent build order creation unless BOM has been validated",
+            "default": "False",
+            "units": ""
+        },
+        "BUILDORDER_REQUIRE_CLOSED_CHILDS": {
+            "name": "Require Closed Child Orders",
+            "description": "Prevent build order completion until all child orders are closed",
+            "default": "False",
+            "units": ""
+        },
+        "BUILDORDER_EXTERNAL_BUILDS": {
+            "name": "External Build Orders",
+            "description": "Enable external build order functionality",
+            "default": "False",
+            "units": ""
+        },
+        "PREVENT_BUILD_COMPLETION_HAVING_INCOMPLETED_TESTS": {
+            "name": "Block Until Tests Pass",
+            "description": "Prevent build outputs from being completed until all required tests pass",
+            "default": "False",
+            "units": ""
+        },
+        "RETURNORDER_ENABLED": {
+            "name": "Enable Return Orders",
+            "description": "Enable return order functionality in the user interface",
+            "default": "False",
+            "units": ""
+        },
+        "RETURNORDER_REFERENCE_PATTERN": {
+            "name": "Return Order Reference Pattern",
+            "description": "Required pattern for generating Return Order reference field",
+            "default": "RMA-{ref:04d}",
+            "units": ""
+        },
+        "RETURNORDER_REQUIRE_RESPONSIBLE": {
+            "name": "Require Responsible Owner",
+            "description": "A responsible owner must be assigned to each order",
+            "default": "False",
+            "units": ""
+        },
+        "RETURNORDER_EDIT_COMPLETED_ORDERS": {
+            "name": "Edit Completed Return Orders",
+            "description": "Allow editing of return orders after they have been completed",
+            "default": "False",
+            "units": ""
+        },
+        "SALESORDER_REFERENCE_PATTERN": {
+            "name": "Sales Order Reference Pattern",
+            "description": "Required pattern for generating Sales Order reference field",
+            "default": "SO-{ref:04d}",
+            "units": ""
+        },
+        "SALESORDER_REQUIRE_RESPONSIBLE": {
+            "name": "Require Responsible Owner",
+            "description": "A responsible owner must be assigned to each order",
+            "default": "False",
+            "units": ""
+        },
+        "SALESORDER_DEFAULT_SHIPMENT": {
+            "name": "Sales Order Default Shipment",
+            "description": "Enable creation of default shipment with sales orders",
+            "default": "False",
+            "units": ""
+        },
+        "SALESORDER_EDIT_COMPLETED_ORDERS": {
+            "name": "Edit Completed Sales Orders",
+            "description": "Allow editing of sales orders after they have been shipped or completed",
+            "default": "False",
+            "units": ""
+        },
+        "SALESORDER_SHIP_COMPLETE": {
+            "name": "Mark Shipped Orders as Complete",
+            "description": "Sales orders marked as shipped will automatically be completed, bypassing the \"shipped\" status",
+            "default": "False",
+            "units": ""
+        },
+        "PURCHASEORDER_REFERENCE_PATTERN": {
+            "name": "Purchase Order Reference Pattern",
+            "description": "Required pattern for generating Purchase Order reference field",
+            "default": "PO-{ref:04d}",
+            "units": ""
+        },
+        "PURCHASEORDER_REQUIRE_RESPONSIBLE": {
+            "name": "Require Responsible Owner",
+            "description": "A responsible owner must be assigned to each order",
+            "default": "False",
+            "units": ""
+        },
+        "PURCHASEORDER_EDIT_COMPLETED_ORDERS": {
+            "name": "Edit Completed Purchase Orders",
+            "description": "Allow editing of purchase orders after they have been shipped or completed",
+            "default": "False",
+            "units": ""
+        },
+        "PURCHASEORDER_CONVERT_CURRENCY": {
+            "name": "Convert Currency",
+            "description": "Convert item value to base currency when receiving stock",
+            "default": "False",
+            "units": ""
+        },
+        "PURCHASEORDER_AUTO_COMPLETE": {
+            "name": "Auto Complete Purchase Orders",
+            "description": "Automatically mark purchase orders as complete when all line items are received",
+            "default": "True",
+            "units": ""
+        },
+        "LOGIN_ENABLE_PWD_FORGOT": {
+            "name": "Enable password forgot",
+            "description": "Enable password forgot function on the login pages",
+            "default": "True",
+            "units": ""
+        },
+        "LOGIN_ENABLE_REG": {
+            "name": "Enable registration",
+            "description": "Enable self-registration for users on the login pages",
+            "default": "False",
+            "units": ""
+        },
+        "LOGIN_ENABLE_SSO": {
+            "name": "Enable SSO",
+            "description": "Enable SSO on the login pages",
+            "default": "False",
+            "units": ""
+        },
+        "LOGIN_ENABLE_SSO_REG": {
+            "name": "Enable SSO registration",
+            "description": "Enable self-registration via SSO for users on the login pages",
+            "default": "False",
+            "units": ""
+        },
+        "LOGIN_ENABLE_SSO_GROUP_SYNC": {
+            "name": "Enable SSO group sync",
+            "description": "Enable synchronizing InvenTree groups with groups provided by the IdP",
+            "default": "False",
+            "units": ""
+        },
+        "SSO_GROUP_KEY": {
+            "name": "SSO group key",
+            "description": "The name of the groups claim attribute provided by the IdP",
+            "default": "groups",
+            "units": ""
+        },
+        "SSO_GROUP_MAP": {
+            "name": "SSO group map",
+            "description": "A mapping from SSO groups to local InvenTree groups. If the local group does not exist, it will be created.",
+            "default": "{}",
+            "units": ""
+        },
+        "SSO_REMOVE_GROUPS": {
+            "name": "Remove groups outside of SSO",
+            "description": "Whether groups assigned to the user should be removed if they are not backend by the IdP. Disabling this setting might cause security issues",
+            "default": "True",
+            "units": ""
+        },
+        "LOGIN_MAIL_REQUIRED": {
+            "name": "Email required",
+            "description": "Require user to supply mail on signup",
+            "default": "False",
+            "units": ""
+        },
+        "LOGIN_SIGNUP_SSO_AUTO": {
+            "name": "Auto-fill SSO users",
+            "description": "Automatically fill out user-details from SSO account-data",
+            "default": "True",
+            "units": ""
+        },
+        "LOGIN_SIGNUP_MAIL_TWICE": {
+            "name": "Mail twice",
+            "description": "On signup ask users twice for their mail",
+            "default": "False",
+            "units": ""
+        },
+        "LOGIN_SIGNUP_PWD_TWICE": {
+            "name": "Password twice",
+            "description": "On signup ask users twice for their password",
+            "default": "True",
+            "units": ""
+        },
+        "LOGIN_SIGNUP_MAIL_RESTRICTION": {
+            "name": "Allowed domains",
+            "description": "Restrict signup to certain domains (comma-separated, starting with @)",
+            "default": "",
+            "units": ""
+        },
+        "SIGNUP_GROUP": {
+            "name": "Group on signup",
+            "description": "Group to which new users are assigned on registration. If SSO group sync is enabled, this group is only set if no group can be assigned from the IdP.",
+            "default": "",
+            "units": ""
+        },
+        "LOGIN_ENFORCE_MFA": {
+            "name": "Enforce MFA",
+            "description": "Users must use multifactor security.",
+            "default": "False",
+            "units": ""
+        },
+        "PLUGIN_ON_STARTUP": {
+            "name": "Check plugins on startup",
+            "description": "Check that all plugins are installed on startup - enable in container environments",
+            "default": "False",
+            "units": ""
+        },
+        "PLUGIN_UPDATE_CHECK": {
+            "name": "Check for plugin updates",
+            "description": "Enable periodic checks for updates to installed plugins",
+            "default": "True",
+            "units": ""
+        },
+        "ENABLE_PLUGINS_URL": {
+            "name": "Enable URL integration",
+            "description": "Enable plugins to add URL routes",
+            "default": "False",
+            "units": ""
+        },
+        "ENABLE_PLUGINS_NAVIGATION": {
+            "name": "Enable navigation integration",
+            "description": "Enable plugins to integrate into navigation",
+            "default": "False",
+            "units": ""
+        },
+        "ENABLE_PLUGINS_APP": {
+            "name": "Enable app integration",
+            "description": "Enable plugins to add apps",
+            "default": "False",
+            "units": ""
+        },
+        "ENABLE_PLUGINS_SCHEDULE": {
+            "name": "Enable schedule integration",
+            "description": "Enable plugins to run scheduled tasks",
+            "default": "False",
+            "units": ""
+        },
+        "ENABLE_PLUGINS_EVENTS": {
+            "name": "Enable event integration",
+            "description": "Enable plugins to respond to internal events",
+            "default": "False",
+            "units": ""
+        },
+        "ENABLE_PLUGINS_INTERFACE": {
+            "name": "Enable interface integration",
+            "description": "Enable plugins to integrate into the user interface",
+            "default": "False",
+            "units": ""
+        },
+        "ENABLE_PLUGINS_MAILS": {
+            "name": "Enable mail integration",
+            "description": "Enable plugins to process outgoing/incoming mails",
+            "default": "False",
+            "units": ""
+        },
+        "PROJECT_CODES_ENABLED": {
+            "name": "Enable project codes",
+            "description": "Enable project codes for tracking projects",
+            "default": "False",
+            "units": ""
+        },
+        "STOCKTAKE_ENABLE": {
+            "name": "Enable Stock History",
+            "description": "Enable functionality for recording historical stock levels and value",
+            "default": "False",
+            "units": ""
+        },
+        "STOCKTAKE_EXCLUDE_EXTERNAL": {
+            "name": "Exclude External Locations",
+            "description": "Exclude stock items in external locations from stock history calculations",
+            "default": "False",
+            "units": ""
+        },
+        "STOCKTAKE_AUTO_DAYS": {
+            "name": "Automatic Stocktake Period",
+            "description": "Number of days between automatic stock history recording",
+            "default": "7",
+            "units": "days"
+        },
+        "STOCKTAKE_DELETE_OLD_ENTRIES": {
+            "name": "Delete Old Stock History Entries",
+            "description": "Delete stock history entries older than the specified number of days",
+            "default": "False",
+            "units": ""
+        },
+        "STOCKTAKE_DELETE_DAYS": {
+            "name": "Stock History Deletion Interval",
+            "description": "Stock history entries will be deleted after specified number of days",
+            "default": "365",
+            "units": "days"
+        },
+        "DISPLAY_FULL_NAMES": {
+            "name": "Display Users full names",
+            "description": "Display Users full names instead of usernames",
+            "default": "False",
+            "units": ""
+        },
+        "DISPLAY_PROFILE_INFO": {
+            "name": "Display User Profiles",
+            "description": "Display Users Profiles on their profile page",
+            "default": "True",
+            "units": ""
+        },
+        "TEST_STATION_DATA": {
+            "name": "Enable Test Station Data",
+            "description": "Enable test station data collection for test results",
+            "default": "False",
+            "units": ""
+        }
+    },
+    "user": {
+        "LABEL_INLINE": {
+            "name": "Inline label display",
+            "description": "Display PDF labels in the browser, instead of downloading as a file",
+            "default": "True",
+            "units": ""
+        },
+        "LABEL_DEFAULT_PRINTER": {
+            "name": "Default label printer",
+            "description": "Configure which label printer should be selected by default",
+            "default": "",
+            "units": ""
+        },
+        "REPORT_INLINE": {
+            "name": "Inline report display",
+            "description": "Display PDF reports in the browser, instead of downloading as a file",
+            "default": "False",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_SHOW_PARTS": {
+            "name": "Search Parts",
+            "description": "Display parts in search preview window",
+            "default": "True",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_SHOW_SUPPLIER_PARTS": {
+            "name": "Search Supplier Parts",
+            "description": "Display supplier parts in search preview window",
+            "default": "True",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_SHOW_MANUFACTURER_PARTS": {
+            "name": "Search Manufacturer Parts",
+            "description": "Display manufacturer parts in search preview window",
+            "default": "True",
+            "units": ""
+        },
+        "SEARCH_HIDE_INACTIVE_PARTS": {
+            "name": "Hide Inactive Parts",
+            "description": "Excluded inactive parts from search preview window",
+            "default": "False",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_SHOW_CATEGORIES": {
+            "name": "Search Categories",
+            "description": "Display part categories in search preview window",
+            "default": "False",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_SHOW_STOCK": {
+            "name": "Search Stock",
+            "description": "Display stock items in search preview window",
+            "default": "True",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_HIDE_UNAVAILABLE_STOCK": {
+            "name": "Hide Unavailable Stock Items",
+            "description": "Exclude stock items which are not available from the search preview window",
+            "default": "False",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_SHOW_LOCATIONS": {
+            "name": "Search Locations",
+            "description": "Display stock locations in search preview window",
+            "default": "False",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_SHOW_COMPANIES": {
+            "name": "Search Companies",
+            "description": "Display companies in search preview window",
+            "default": "True",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_SHOW_BUILD_ORDERS": {
+            "name": "Search Build Orders",
+            "description": "Display build orders in search preview window",
+            "default": "True",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_SHOW_PURCHASE_ORDERS": {
+            "name": "Search Purchase Orders",
+            "description": "Display purchase orders in search preview window",
+            "default": "True",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_EXCLUDE_INACTIVE_PURCHASE_ORDERS": {
+            "name": "Exclude Inactive Purchase Orders",
+            "description": "Exclude inactive purchase orders from search preview window",
+            "default": "True",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_SHOW_SALES_ORDERS": {
+            "name": "Search Sales Orders",
+            "description": "Display sales orders in search preview window",
+            "default": "True",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_EXCLUDE_INACTIVE_SALES_ORDERS": {
+            "name": "Exclude Inactive Sales Orders",
+            "description": "Exclude inactive sales orders from search preview window",
+            "default": "True",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_SHOW_SALES_ORDER_SHIPMENTS": {
+            "name": "Search Sales Order Shipments",
+            "description": "Display sales order shipments in search preview window",
+            "default": "True",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_SHOW_RETURN_ORDERS": {
+            "name": "Search Return Orders",
+            "description": "Display return orders in search preview window",
+            "default": "True",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_EXCLUDE_INACTIVE_RETURN_ORDERS": {
+            "name": "Exclude Inactive Return Orders",
+            "description": "Exclude inactive return orders from search preview window",
+            "default": "True",
+            "units": ""
+        },
+        "SEARCH_PREVIEW_RESULTS": {
+            "name": "Search Preview Results",
+            "description": "Number of results to show in each section of the search preview window",
+            "default": "10",
+            "units": ""
+        },
+        "SEARCH_REGEX": {
+            "name": "Regex Search",
+            "description": "Enable regular expressions in search queries",
+            "default": "False",
+            "units": ""
+        },
+        "SEARCH_WHOLE": {
+            "name": "Whole Word Search",
+            "description": "Search queries return results for whole word matches",
+            "default": "False",
+            "units": ""
+        },
+        "SEARCH_NOTES": {
+            "name": "Search Notes",
+            "description": "Search queries return results for matches from the item's notes",
+            "default": "False",
+            "units": ""
+        },
+        "FORMS_CLOSE_USING_ESCAPE": {
+            "name": "Escape Key Closes Forms",
+            "description": "Use the escape key to close modal forms",
+            "default": "False",
+            "units": ""
+        },
+        "STICKY_HEADER": {
+            "name": "Fixed Navbar",
+            "description": "The navbar position is fixed to the top of the screen",
+            "default": "False",
+            "units": ""
+        },
+        "STICKY_TABLE_HEADER": {
+            "name": "Fixed Table Headers",
+            "description": "Table headers are fixed to the top of the table",
+            "default": "False",
+            "units": ""
+        },
+        "ICONS_IN_NAVBAR": {
+            "name": "Navigation Icons",
+            "description": "Display icons in the navigation bar",
+            "default": "False",
+            "units": ""
+        },
+        "DATE_DISPLAY_FORMAT": {
+            "name": "Date Format",
+            "description": "Preferred format for displaying dates",
+            "default": "YYYY-MM-DD",
+            "units": ""
+        },
+        "DISPLAY_STOCKTAKE_TAB": {
+            "name": "Show Stock History",
+            "description": "Display stock history information in the part detail page",
+            "default": "True",
+            "units": ""
+        },
+        "ENABLE_LAST_BREADCRUMB": {
+            "name": "Show Last Breadcrumb",
+            "description": "Show the current page in breadcrumbs",
+            "default": "False",
+            "units": ""
+        },
+        "SHOW_FULL_LOCATION_IN_TABLES": {
+            "name": "Show full stock location in tables",
+            "description": "Disabled: The full location path is displayed as a hover tooltip. Enabled: The full location path is displayed as plain text.",
+            "default": "False",
+            "units": ""
+        },
+        "SHOW_FULL_CATEGORY_IN_TABLES": {
+            "name": "Show full part categories in tables",
+            "description": "Disabled: The full category path is displayed as a hover tooltip. Enabled: The full category path is displayed as plain text.",
+            "default": "False",
+            "units": ""
+        },
+        "NOTIFICATION_ERROR_REPORT": {
+            "name": "Receive error reports",
+            "description": "Receive notifications for system errors",
+            "default": "True",
+            "units": ""
+        },
+        "LAST_USED_PRINTING_MACHINES": {
+            "name": "Last used printing machines",
+            "description": "Save the last used printing machines for a user",
+            "default": "",
+            "units": ""
+        }
+    }
+}
