@@ -1,0 +1,1114 @@
+-   body: ''
+    library: ''
+    meta: {}
+    name: autoescape
+    title: Force autoescape behavior for this block.
+-   body: ''
+    library: ''
+    meta: {}
+    name: comment
+    title: Ignore everything between ``{% comment %}`` and ``{% endcomment %}``.
+-   body: "Within a loop, cycles among the given strings each time through\nthe loop::\n\
+        \n    {% for o in some_list %}\n        <tr class=\"{% cycle 'row1' 'row2'\
+        \ %}\">\n            ...\n        </tr>\n    {% endfor %}\n\nOutside of a\
+        \ loop, give the values a unique name the first time you call\nit, then use\
+        \ that name each successive time through::\n\n        <tr class=\"{% cycle\
+        \ 'row1' 'row2' 'row3' as rowcolors %}\">...</tr>\n        <tr class=\"{%\
+        \ cycle rowcolors %}\">...</tr>\n        <tr class=\"{% cycle rowcolors %}\"\
+        >...</tr>\n\nYou can use any number of values, separated by spaces. Commas\
+        \ can also\nbe used to separate values; if a comma is used, the cycle values\
+        \ are\ninterpreted as literal strings.\n\nThe optional flag \"silent\" can\
+        \ be used to prevent the cycle declaration\nfrom returning any value::\n\n\
+        \    {% for o in some_list %}\n        {% cycle 'row1' 'row2' as rowcolors\
+        \ silent %}\n        <tr class=\"{{ rowcolors }}\">{% include \"subtemplate.html\
+        \ \" %}</tr>\n    {% endfor %}"
+    library: ''
+    meta: {}
+    name: cycle
+    title: Cycle among the given strings each time this tag is encountered.
+-   body: ''
+    library: ''
+    meta: {}
+    name: csrf_token
+    title: ''
+-   body: "Sample usage::\n\n    <pre>\n        {% debug %}\n    </pre>"
+    library: ''
+    meta: {}
+    name: debug
+    title: 'Output a whole load of debugging information, including the current
+
+        context and imported modules.'
+-   body: "Filters can also be piped through each other, and they can have\narguments\
+        \ -- just like in variable syntax.\n\nSample usage::\n\n    {% filter force_escape|lower\
+        \ %}\n        This text will be HTML-escaped, and will appear in lowercase.\n\
+        \    {% endfilter %}\n\nNote that the ``escape`` and ``safe`` filters are\
+        \ not acceptable arguments.\nInstead, use the ``autoescape`` tag to manage\
+        \ autoescaping for blocks of\ntemplate code."
+    library: ''
+    meta: {}
+    name: filter
+    title: Filter the contents of the block through variable filters.
+-   body: "Output nothing if all the passed variables are False.\n\nSample usage::\n\
+        \n    {% firstof var1 var2 var3 as myvar %}\n\nThis is equivalent to::\n\n\
+        \    {% if var1 %}\n        {{ var1 }}\n    {% elif var2 %}\n        {{ var2\
+        \ }}\n    {% elif var3 %}\n        {{ var3 }}\n    {% endif %}\n\nbut much\
+        \ cleaner!\n\nYou can also use a literal string as a fallback value in case\
+        \ all\npassed variables are False::\n\n    {% firstof var1 var2 var3 \"fallback\
+        \ value\" %}\n\nIf you want to disable auto-escaping of variables you can\
+        \ use::\n\n    {% autoescape off %}\n        {% firstof var1 var2 var3 \"\
+        <strong>fallback value</strong>\" %}\n    {% autoescape %}\n\nOr if only some\
+        \ variables should be escaped, you can use::\n\n    {% firstof var1 var2|safe\
+        \ var3 \"<strong>fallback value</strong>\"|safe %}"
+    library: ''
+    meta: {}
+    name: firstof
+    title: Output the first variable passed that is not False.
+-   body: "For example, to display a list of athletes given ``athlete_list``::\n\n\
+        \    <ul>\n    {% for athlete in athlete_list %}\n        <li>{{ athlete.name\
+        \ }}</li>\n    {% endfor %}\n    </ul>\n\nYou can loop over a list in reverse\
+        \ by using\n``{% for obj in list reversed %}``.\n\nYou can also unpack multiple\
+        \ values from a two-dimensional array::\n\n    {% for key,value in dict.items\
+        \ %}\n        {{ key }}: {{ value }}\n    {% endfor %}\n\nThe ``for`` tag\
+        \ can take an optional ``{% empty %}`` clause that will\nbe displayed if the\
+        \ given array is empty or could not be found::\n\n    <ul>\n      {% for athlete\
+        \ in athlete_list %}\n        <li>{{ athlete.name }}</li>\n      {% empty\
+        \ %}\n        <li>Sorry, no athletes in this list.</li>\n      {% endfor %}\n\
+        \    <ul>\n\nThe above is equivalent to -- but shorter, cleaner, and possibly\
+        \ faster\nthan -- the following::\n\n    <ul>\n      {% if athlete_list %}\n\
+        \        {% for athlete in athlete_list %}\n          <li>{{ athlete.name\
+        \ }}</li>\n        {% endfor %}\n      {% else %}\n        <li>Sorry, no athletes\
+        \ in this list.</li>\n      {% endif %}\n    </ul>\n\nThe for loop sets a\
+        \ number of variables available within the loop:\n\n    ==========================\
+        \  ================================================\n    Variable        \
+        \            Description\n    ==========================  ================================================\n\
+        \    ``forloop.counter``         The current iteration of the loop (1-indexed)\n\
+        \    ``forloop.counter0``        The current iteration of the loop (0-indexed)\n\
+        \    ``forloop.revcounter``      The number of iterations from the end of\
+        \ the\n                                loop (1-indexed)\n    ``forloop.revcounter0``\
+        \     The number of iterations from the end of the\n                     \
+        \           loop (0-indexed)\n    ``forloop.first``           True if this\
+        \ is the first time through the loop\n    ``forloop.last``            True\
+        \ if this is the last time through the loop\n    ``forloop.parentloop``  \
+        \    For nested loops, this is the loop \"above\" the\n                  \
+        \              current one\n    ==========================  ================================================"
+    library: ''
+    meta: {}
+    name: for
+    title: Loop over each item in an array.
+-   body: "::\n\n    {% if athlete_list %}\n        Number of athletes: {{ athlete_list|count\
+        \ }}\n    {% elif athlete_in_locker_room_list %}\n        Athletes should\
+        \ be out of the locker room soon!\n    {% else %}\n        No athletes.\n\
+        \    {% endif %}\n\nIn the above, if ``athlete_list`` is not empty, the number\
+        \ of athletes will\nbe displayed by the ``{{ athlete_list|count }}`` variable.\n\
+        \nThe ``if`` tag may take one or several `` {% elif %}`` clauses, as well\
+        \ as\nan ``{% else %}`` clause that will be displayed if all previous conditions\n\
+        fail. These clauses are optional.\n\n``if`` tags may use ``or``, ``and`` or\
+        \ ``not`` to test a number of\nvariables or to negate a given variable::\n\
+        \n    {% if not athlete_list %}\n        There are no athletes.\n    {% endif\
+        \ %}\n\n    {% if athlete_list or coach_list %}\n        There are some athletes\
+        \ or some coaches.\n    {% endif %}\n\n    {% if athlete_list and coach_list\
+        \ %}\n        Both athletes and coaches are available.\n    {% endif %}\n\n\
+        \    {% if not athlete_list or coach_list %}\n        There are no athletes,\
+        \ or there are some coaches.\n    {% endif %}\n\n    {% if athlete_list and\
+        \ not coach_list %}\n        There are some athletes and absolutely no coaches.\n\
+        \    {% endif %}\n\nComparison operators are also available, and the use of\
+        \ filters is also\nallowed, for example::\n\n    {% if articles|length >=\
+        \ 5 %}...{% endif %}\n\nArguments and operators _must_ have a space between\
+        \ them, so\n``{% if 1>2 %}`` is not a valid if tag.\n\nAll supported operators\
+        \ are: ``or``, ``and``, ``in``, ``not in``\n``==``, ``!=``, ``>``, ``>=``,\
+        \ ``<`` and ``<=``.\n\nOperator precedence follows Python."
+    library: ''
+    meta: {}
+    name: if
+    title: 'Evaluate a variable, and if that variable is "true" (i.e., exists, is
+        not
+
+        empty, and is not a false boolean value), output the contents of the block:'
+-   body: "The ``{% ifchanged %}`` block tag is used within a loop. It has two\npossible\
+        \ uses.\n\n1. Check its own rendered contents against its previous state and\
+        \ only\n   displays the content if it has changed. For example, this displays\
+        \ a\n   list of days, only displaying the month if it changes::\n\n      \
+        \  <h1>Archive for {{ year }}</h1>\n\n        {% for date in days %}\n   \
+        \         {% ifchanged %}<h3>{{ date|date:\"F\" }}</h3>{% endifchanged %}\n\
+        \            <a href=\"{{ date|date:\"M/d\"|lower }}/\">{{ date|date:\"j\"\
+        \ }}</a>\n        {% endfor %}\n\n2. If given one or more variables, check\
+        \ whether any variable has changed.\n   For example, the following shows the\
+        \ date every time it changes, while\n   showing the hour if either the hour\
+        \ or the date has changed::\n\n        {% for date in days %}\n          \
+        \  {% ifchanged date.date %} {{ date.date }} {% endifchanged %}\n        \
+        \    {% ifchanged date.hour date.date %}\n                {{ date.hour }}\n\
+        \            {% endifchanged %}\n        {% endfor %}"
+    library: ''
+    meta: {}
+    name: ifchanged
+    title: Check if a value has changed from the last iteration of a loop.
+-   body: "For example, to load the template tags in\n``django/templatetags/news/photos.py``::\n\
+        \n    {% load news.photos %}\n\nCan also be used to load an individual tag/filter\
+        \ from\na library::\n\n    {% load byline from news %}"
+    library: ''
+    meta: {}
+    name: load
+    title: Load a custom template tag library into the parser.
+-   body: "Usage format::\n\n    {% lorem [count] [method] [random] %}\n\n``count``\
+        \ is a number (or variable) containing the number of paragraphs or\nwords\
+        \ to generate (default is 1).\n\n``method`` is either ``w`` for words, ``p``\
+        \ for HTML paragraphs, ``b`` for\nplain-text paragraph blocks (default is\
+        \ ``b``).\n\n``random`` is the word ``random``, which if given, does not use\
+        \ the common\nparagraph (starting \"Lorem ipsum dolor sit amet, consectetuer...\"\
+        ).\n\nExamples:\n\n* ``{% lorem %}`` outputs the common \"lorem ipsum\" paragraph\n\
+        * ``{% lorem 3 p %}`` outputs the common \"lorem ipsum\" paragraph\n  and\
+        \ two random paragraphs each wrapped in HTML ``<p>`` tags\n* ``{% lorem 2\
+        \ w random %}`` outputs two random latin words"
+    library: ''
+    meta: {}
+    name: lorem
+    title: Create random Latin text useful for providing test data in templates.
+-   body: "Use the same format as PHP's ``date()`` function; see https://php.net/date\n\
+        for all the possible values.\n\nSample usage::\n\n    It is {% now \"jS F\
+        \ Y H:i\" %}"
+    library: ''
+    meta: {}
+    name: now
+    title: Display the date, formatted according to the given string.
+-   body: "This complex tag is best illustrated by use of an example: say that\n``musicians``\
+        \ is a list of ``Musician`` objects that have ``name`` and\n``instrument``\
+        \ attributes, and you'd like to display a list that\nlooks like:\n\n    *\
+        \ Guitar:\n        * Django Reinhardt\n        * Emily Remler\n    * Piano:\n\
+        \        * Lovie Austin\n        * Bud Powell\n    * Trumpet:\n        * Duke\
+        \ Ellington\n\nThe following snippet of template code would accomplish this\
+        \ dubious task::\n\n    {% regroup musicians by instrument as grouped %}\n\
+        \    <ul>\n    {% for group in grouped %}\n        <li>{{ group.grouper }}\n\
+        \        <ul>\n            {% for musician in group.list %}\n            <li>{{\
+        \ musician.name }}</li>\n            {% endfor %}\n        </ul>\n    {% endfor\
+        \ %}\n    </ul>\n\nAs you can see, ``{% regroup %}`` populates a variable\
+        \ with a list of\nobjects with ``grouper`` and ``list`` attributes. ``grouper``\
+        \ contains the\nitem that was grouped by; ``list`` contains the list of objects\
+        \ that share\nthat ``grouper``. In this case, ``grouper`` would be ``Guitar``,\
+        \ ``Piano``\nand ``Trumpet``, and ``list`` is the list of musicians who play\
+        \ this\ninstrument.\n\nNote that ``{% regroup %}`` does not work when the\
+        \ list to be grouped is not\nsorted by the key you are grouping by! This means\
+        \ that if your list of\nmusicians was not sorted by instrument, you'd need\
+        \ to make sure it is sorted\nbefore using it, i.e.::\n\n    {% regroup musicians|dictsort:\"\
+        instrument\" by instrument as grouped %}"
+    library: ''
+    meta: {}
+    name: regroup
+    title: Regroup a list of alike objects by a common attribute.
+-   body: 'If an argument is given, reset the last rendered cycle tag whose name
+
+        matches the argument, else reset the last rendered cycle tag (named or
+
+        unnamed).'
+    library: ''
+    meta: {}
+    name: resetcycle
+    title: Reset a cycle tag.
+-   body: "Example usage::\n\n    {% spaceless %}\n        <p>\n            <a href=\"\
+        foo/\">Foo</a>\n        </p>\n    {% endspaceless %}\n\nThis example returns\
+        \ this HTML::\n\n    <p><a href=\"foo/\">Foo</a></p>\n\nOnly space between\
+        \ *tags* is normalized -- not space between tags and text.\nIn this example,\
+        \ the space around ``Hello`` isn't stripped::\n\n    {% spaceless %}\n   \
+        \     <strong>\n            Hello\n        </strong>\n    {% endspaceless\
+        \ %}"
+    library: ''
+    meta: {}
+    name: spaceless
+    title: Remove whitespace between HTML tags, including tab and newline characters.
+-   body: "Since the template system has no concept of \"escaping\", to display one\
+        \ of\nthe bits used in template tags, you must use the ``{% templatetag %}``\
+        \ tag.\n\nThe argument tells which template bit to output:\n\n    ==================\
+        \  =======\n    Argument            Outputs\n    ==================  =======\n\
+        \    ``openblock``       ``{%``\n    ``closeblock``      ``%}``\n    ``openvariable``\
+        \    ``{{``\n    ``closevariable``   ``}}``\n    ``openbrace``       ``{``\n\
+        \    ``closebrace``      ``}``\n    ``opencomment``     ``{#``\n    ``closecomment``\
+        \    ``#}``\n    ==================  ======="
+    library: ''
+    meta: {}
+    name: templatetag
+    title: Output one of the bits used to compose template tags.
+-   body: "This is a way to define links that aren't tied to a particular URL\nconfiguration::\n\
+        \n    {% url \"url_name\" arg1 arg2 %}\n\n    or\n\n    {% url \"url_name\"\
+        \ name1=value1 name2=value2 %}\n\nThe first argument is a URL pattern name.\
+        \ Other arguments are\nspace-separated values that will be filled in place\
+        \ of positional and\nkeyword arguments in the URL. Don't mix positional and\
+        \ keyword arguments.\nAll arguments for the URL must be present.\n\nFor example,\
+        \ if you have a view ``app_name.views.client_details`` taking\nthe client's\
+        \ id and the corresponding line in a URLconf looks like this::\n\n    path('client/<int:id>/',\
+        \ views.client_details, name='client-detail-view')\n\nand this app's URLconf\
+        \ is included into the project's URLconf under some\npath::\n\n    path('clients/',\
+        \ include('app_name.urls'))\n\nthen in a template you can create a link for\
+        \ a certain client like this::\n\n    {% url \"client-detail-view\" client.id\
+        \ %}\n\nThe URL will look like ``/clients/client/123/``.\n\nThe first argument\
+        \ may also be the name of a template variable that will be\nevaluated to obtain\
+        \ the view name or the URL name, e.g.::\n\n    {% with url_name=\"client-detail-view\"\
+        \ %}\n    {% url url_name client.id %}\n    {% endwith %}"
+    library: ''
+    meta: {}
+    name: url
+    title: Return an absolute URL matching the given view with its parameters.
+-   body: "Usage::\n\n    {% verbatim %}\n        {% don't process this %}\n    {%\
+        \ endverbatim %}\n\nYou can also designate a specific closing tag block (allowing\
+        \ the\nunrendered use of ``{% endverbatim %}``)::\n\n    {% verbatim myblock\
+        \ %}\n        ...\n    {% endverbatim myblock %}"
+    library: ''
+    meta: {}
+    name: verbatim
+    title: Stop the template engine from rendering the contents of this block tag.
+-   body: "For example::\n\n    <img src=\"bar.png\" alt=\"Bar\"\n         height=\"\
+        10\" width=\"{% widthratio this_value max_value max_width %}\">\n\nIf ``this_value``\
+        \ is 175, ``max_value`` is 200, and ``max_width`` is 100,\nthe image in the\
+        \ above example will be 88 pixels wide\n(because 175/200 = .875; .875 * 100\
+        \ = 87.5 which is rounded up to 88).\n\nIn some cases you might want to capture\
+        \ the result of widthratio in a\nvariable. It can be useful for instance in\
+        \ a blocktranslate like this::\n\n    {% widthratio this_value max_value max_width\
+        \ as width %}\n    {% blocktranslate %}The width is: {{ width }}{% endblocktranslate\
+        \ %}"
+    library: ''
+    meta: {}
+    name: widthratio
+    title: 'For creating bar charts and such. Calculate the ratio of a given value
+        to a
+
+        maximum value, and then apply that ratio to a constant.'
+-   body: "For example::\n\n    {% with total=person.some_sql_method %}\n        {{\
+        \ total }} object{{ total|pluralize }}\n    {% endwith %}\n\nMultiple values\
+        \ can be added to the context::\n\n    {% with foo=1 bar=2 %}\n        ...\n\
+        \    {% endwith %}\n\nThe legacy format of ``{% with person.some_sql_method\
+        \ as total %}`` is\nstill accepted."
+    library: ''
+    meta: {}
+    name: with
+    title: 'Add one or more values to the context (inside of this block) for caching
+
+        and easy access.'
+-   body: ''
+    library: ''
+    meta: {}
+    name: block
+    title: Define a block that can be overridden by child templates.
+-   body: 'This tag may be used in two ways: ``{% extends "base" %}`` (with quotes)
+
+        uses the literal value "base" as the name of the parent template to extend,
+
+        or ``{% extends variable %}`` uses the value of ``variable`` as either the
+
+        name of the parent template to extend (if it evaluates to a string) or as
+
+        the parent template itself (if it evaluates to a Template object).'
+    library: ''
+    meta: {}
+    name: extends
+    title: Signal that this template extends a parent template.
+-   body: "Example::\n\n    {% include \"foo/some_include\" %}\n    {% include \"\
+        foo/some_include\" with bar=\"BAZZ!\" baz=\"BING!\" %}\n\nUse the ``only``\
+        \ argument to exclude the current context when rendering\nthe included template::\n\
+        \n    {% include \"foo/some_include\" only %}\n    {% include \"foo/some_include\"\
+        \ with bar=\"1\" only %}"
+    library: ''
+    meta: {}
+    name: include
+    title: 'Load a template and render it with the current context. You can pass
+
+        additional context using keyword arguments.'
+-   body: "    {% user_display user %}\n\nor if you need to use in a {% blocktrans\
+        \ %}::\n\n    {% user_display user as user_display %}\n    {% blocktrans %}\n\
+        \    {{ user_display }} has sent you a gift.\n    {% endblocktrans %}"
+    library: account
+    meta: {}
+    name: user_display
+    title: 'Example usage::'
+-   body: ''
+    library: admin_list
+    meta: {}
+    name: paginator_number
+    title: Generate an individual page index link in a paginated list.
+-   body: ''
+    library: admin_list
+    meta: {}
+    name: pagination
+    title: ''
+-   body: ''
+    library: admin_list
+    meta: {}
+    name: result_list
+    title: ''
+-   body: ''
+    library: admin_list
+    meta: {}
+    name: date_hierarchy
+    title: ''
+-   body: ''
+    library: admin_list
+    meta: {}
+    name: search_form
+    title: ''
+-   body: ''
+    library: admin_list
+    meta: {}
+    name: admin_list_filter
+    title: ''
+-   body: ''
+    library: admin_list
+    meta: {}
+    name: admin_actions
+    title: ''
+-   body: ''
+    library: admin_list
+    meta: {}
+    name: change_list_object_tools
+    title: Display the row of change list object tools.
+-   body: ''
+    library: admin_modify
+    meta: {}
+    name: prepopulated_fields_js
+    title: ''
+-   body: ''
+    library: admin_modify
+    meta: {}
+    name: submit_row
+    title: ''
+-   body: ''
+    library: admin_modify
+    meta: {}
+    name: change_form_object_tools
+    title: Display the row of change form object tools.
+-   body: ''
+    library: admin_urls
+    meta: {}
+    name: add_preserved_filters
+    title: ''
+-   body: ''
+    library: allauth
+    meta: {}
+    name: slot
+    title: ''
+-   body: ''
+    library: allauth
+    meta: {}
+    name: element
+    title: ''
+-   body: ''
+    library: allauth
+    meta: {}
+    name: setvar
+    title: ''
+-   body: '- This function runs the data through bleach, and removes any malicious
+        HTML content.
+
+        - Used to render raw barcode data into the rendered HTML templates'
+    library: barcode
+    meta: {}
+    name: clean_barcode
+    title: Return a 'cleaned' string for encoding into a barcode / qrcode.
+-   body: "Arguments:\n    data: Data to encode\n\nKeyword Arguments:\n    version\
+        \ (int): QR code version, (None to auto detect) (default = None)\n    error_correction\
+        \ (str): Error correction level (L: 7%, M: 15%, Q: 25%, H: 30%) (default =\
+        \ 'M')\n    box_size (int): pixel dimensions for one black square pixel in\
+        \ the QR code (default = 20)\n    border (int): count white QR square pixels\
+        \ around the qr code, needed as padding (default = 1)\n    optimize (int):\
+        \ data will be split into multiple chunks of at least this length using different\
+        \ modes (text, alphanumeric, binary) to optimize the QR code size. Set to\
+        \ `0` to disable. (default = 1)\n    format (str): Image format (default =\
+        \ 'PNG')\n    fill_color (str): Fill color (default = \"black\")\n    back_color\
+        \ (str): Background color (default = \"white\")"
+    library: barcode
+    meta:
+        Returns: "\n    image (str): base64 encoded image data"
+    name: qrcode
+    title: Return a byte-encoded QR code image.
+-   body: "Arguments:\n    data: Data to encode\n    barcode_class (str): The type\
+        \ of barcode to generate (default = 'code128')\n\nKeyword Arguments:\n   \
+        \ format (str): Image format (default = 'PNG')\n    fill_color (str): Foreground\
+        \ color (default = 'black')\n    back_color (str): Background color (default\
+        \ = 'white')\n    scale (float): Scaling factor (default = 1)"
+    library: barcode
+    meta:
+        Returns: "\n    image (str): base64 encoded image data"
+    name: barcode
+    title: Render a 1D barcode.
+-   body: "Arguments:\n    data: Data to encode\n\nKeyword Arguments:\n    fill_color\
+        \ (str): Foreground color (default = 'black')\n    back_color (str): Background\
+        \ color (default = 'white')\n    scale (float): Matrix scaling factor (default\
+        \ = 1)\n    border (int): Border width (default = 1)"
+    library: barcode
+    meta:
+        Returns: "\n    image (str): base64 encoded image data"
+    name: datamatrix
+    title: Render a DataMatrix barcode.
+-   body: "Usage::\n\n    {% load cache %}\n    {% cache [expire_time] [fragment_name]\
+        \ %}\n        .. some expensive processing ..\n    {% endcache %}\n\nThis\
+        \ tag also supports varying by a list of arguments::\n\n    {% load cache\
+        \ %}\n    {% cache [expire_time] [fragment_name] [var1] [var2] .. %}\n   \
+        \     .. some expensive processing ..\n    {% endcache %}\n\nOptionally the\
+        \ cache to use may be specified thus::\n\n    {% cache ....  using=\"cachename\"\
+        \ %}\n\nEach unique set of arguments will result in a unique cache entry."
+    library: cache
+    meta: {}
+    name: cache
+    title: 'This will cache the contents of a template fragment for a given amount
+
+        of time.'
+-   body: "    {% money_localize <money_object> [ on(default) | off ] [as var_name]\
+        \ %}\n    {% money_localize <amount> <currency> [ on(default) | off ] [as\
+        \ var_name] %}\n\nExample:\n\n    The same effect:\n    {% money_localize\
+        \ money_object %}\n    {% money_localize money_object on %}\n\n    Assignment\
+        \ to a variable:\n    {% money_localize money_object on as NEW_MONEY_OBJECT\
+        \ %}\n\n    Formatting the number with currency:\n    {% money_localize '4.5'\
+        \ 'USD' %}\n\nReturn::\n\n    Money object"
+    library: djmoney
+    meta: {}
+    name: money_localize
+    title: 'Usage::'
+-   body: ''
+    library: feature_flags
+    meta: {}
+    name: flag_enabled
+    title: ''
+-   body: ''
+    library: feature_flags
+    meta: {}
+    name: flag_disabled
+    title: ''
+-   body: ''
+    library: generic
+    meta: {}
+    name: status_label
+    title: Render a status label.
+-   body: ''
+    library: generic
+    meta: {}
+    name: display_status_label
+    title: Render a status label.
+-   body: "Usage::\n\n    {% get_available_languages as languages %}\n    {% for language\
+        \ in languages %}\n    ...\n    {% endfor %}\n\nThis puts settings.LANGUAGES\
+        \ into the named variable."
+    library: i18n
+    meta: {}
+    name: get_available_languages
+    title: Store a list of available languages in the context.
+-   body: "Usage::\n\n    {% get_language_info for LANGUAGE_CODE as l %}\n    {{ l.code\
+        \ }}\n    {{ l.name }}\n    {{ l.name_translated }}\n    {{ l.name_local }}\n\
+        \    {{ l.bidi|yesno:\"bi-directional,uni-directional\" }}"
+    library: i18n
+    meta: {}
+    name: get_language_info
+    title: 'Store the language information dictionary for the given language code
+        in a
+
+        context variable.'
+-   body: "Usage::\n\n    {% get_language_info_list for LANGUAGES as langs %}\n  \
+        \  {% for l in langs %}\n      {{ l.code }}\n      {{ l.name }}\n      {{\
+        \ l.name_translated }}\n      {{ l.name_local }}\n      {{ l.bidi|yesno:\"\
+        bi-directional,uni-directional\" }}\n    {% endfor %}"
+    library: i18n
+    meta: {}
+    name: get_language_info_list
+    title: 'Store a list of language information dictionaries for the given language
+
+        codes in a context variable. The language codes can be specified either as
+
+        a list of strings or a settings.LANGUAGES style list (or any sequence of
+
+        sequences whose first items are language codes).'
+-   body: "Usage::\n\n    {% get_current_language as language %}\n\nThis fetches the\
+        \ currently active language and puts its value into the\n``language`` context\
+        \ variable."
+    library: i18n
+    meta: {}
+    name: get_current_language
+    title: Store the current language in the context.
+-   body: "Usage::\n\n    {% get_current_language_bidi as bidi %}\n\nThis fetches\
+        \ the currently active language's layout and puts its value into\nthe ``bidi``\
+        \ context variable. True indicates right-to-left layout,\notherwise left-to-right."
+    library: i18n
+    meta: {}
+    name: get_current_language_bidi
+    title: Store the current language layout in the context.
+-   body: "Usage::\n\n    {% translate \"this is a test\" %}\n\nThis marks the string\
+        \ for translation so it will be pulled out by\nmakemessages into the .po files\
+        \ and runs the string through the translation\nengine.\n\nThere is a second\
+        \ form::\n\n    {% translate \"this is a test\" noop %}\n\nThis marks the\
+        \ string for translation, but returns the string unchanged.\nUse it when you\
+        \ need to store values into forms that should be translated\nlater on.\n\n\
+        You can use variables instead of constant strings\nto translate stuff you\
+        \ marked somewhere else::\n\n    {% translate variable %}\n\nThis tries to\
+        \ translate the contents of the variable ``variable``. Make\nsure that the\
+        \ string in there is something that is in the .po file.\n\nIt is possible\
+        \ to store the translated string into a variable::\n\n    {% translate \"\
+        this is a test\" as var %}\n    {{ var }}\n\nContextual translations are also\
+        \ supported::\n\n    {% translate \"this is a test\" context \"greeting\"\
+        \ %}\n\nThis is equivalent to calling pgettext instead of (u)gettext."
+    library: i18n
+    meta: {}
+    name: trans
+    title: 'Mark a string for translation and translate the string for the current
+
+        language.'
+-   body: "Usage::\n\n    {% translate \"this is a test\" %}\n\nThis marks the string\
+        \ for translation so it will be pulled out by\nmakemessages into the .po files\
+        \ and runs the string through the translation\nengine.\n\nThere is a second\
+        \ form::\n\n    {% translate \"this is a test\" noop %}\n\nThis marks the\
+        \ string for translation, but returns the string unchanged.\nUse it when you\
+        \ need to store values into forms that should be translated\nlater on.\n\n\
+        You can use variables instead of constant strings\nto translate stuff you\
+        \ marked somewhere else::\n\n    {% translate variable %}\n\nThis tries to\
+        \ translate the contents of the variable ``variable``. Make\nsure that the\
+        \ string in there is something that is in the .po file.\n\nIt is possible\
+        \ to store the translated string into a variable::\n\n    {% translate \"\
+        this is a test\" as var %}\n    {{ var }}\n\nContextual translations are also\
+        \ supported::\n\n    {% translate \"this is a test\" context \"greeting\"\
+        \ %}\n\nThis is equivalent to calling pgettext instead of (u)gettext."
+    library: i18n
+    meta: {}
+    name: translate
+    title: 'Mark a string for translation and translate the string for the current
+
+        language.'
+-   body: "Usage::\n\n    {% blocktranslate with bar=foo|filter boo=baz|filter %}\n\
+        \    This is {{ bar }} and {{ boo }}.\n    {% endblocktranslate %}\n\nAdditionally,\
+        \ this supports pluralization::\n\n    {% blocktranslate count count=var|length\
+        \ %}\n    There is {{ count }} object.\n    {% plural %}\n    There are {{\
+        \ count }} objects.\n    {% endblocktranslate %}\n\nThis is much like ngettext,\
+        \ only in template syntax.\n\nThe \"var as value\" legacy format is still\
+        \ supported::\n\n    {% blocktranslate with foo|filter as bar and baz|filter\
+        \ as boo %}\n    {% blocktranslate count var|length as count %}\n\nThe translated\
+        \ string can be stored in a variable using `asvar`::\n\n    {% blocktranslate\
+        \ with bar=foo|filter boo=baz|filter asvar var %}\n    This is {{ bar }} and\
+        \ {{ boo }}.\n    {% endblocktranslate %}\n    {{ var }}\n\nContextual translations\
+        \ are supported::\n\n    {% blocktranslate with bar=foo|filter context \"\
+        greeting\" %}\n        This is {{ bar }}.\n    {% endblocktranslate %}\n\n\
+        This is equivalent to calling pgettext/npgettext instead of\n(u)gettext/(u)ngettext."
+    library: i18n
+    meta: {}
+    name: blocktrans
+    title: Translate a block of text with parameters.
+-   body: "Usage::\n\n    {% blocktranslate with bar=foo|filter boo=baz|filter %}\n\
+        \    This is {{ bar }} and {{ boo }}.\n    {% endblocktranslate %}\n\nAdditionally,\
+        \ this supports pluralization::\n\n    {% blocktranslate count count=var|length\
+        \ %}\n    There is {{ count }} object.\n    {% plural %}\n    There are {{\
+        \ count }} objects.\n    {% endblocktranslate %}\n\nThis is much like ngettext,\
+        \ only in template syntax.\n\nThe \"var as value\" legacy format is still\
+        \ supported::\n\n    {% blocktranslate with foo|filter as bar and baz|filter\
+        \ as boo %}\n    {% blocktranslate count var|length as count %}\n\nThe translated\
+        \ string can be stored in a variable using `asvar`::\n\n    {% blocktranslate\
+        \ with bar=foo|filter boo=baz|filter asvar var %}\n    This is {{ bar }} and\
+        \ {{ boo }}.\n    {% endblocktranslate %}\n    {{ var }}\n\nContextual translations\
+        \ are supported::\n\n    {% blocktranslate with bar=foo|filter context \"\
+        greeting\" %}\n        This is {{ bar }}.\n    {% endblocktranslate %}\n\n\
+        This is equivalent to calling pgettext/npgettext instead of\n(u)gettext/(u)ngettext."
+    library: i18n
+    meta: {}
+    name: blocktranslate
+    title: Translate a block of text with parameters.
+-   body: "Usage::\n\n    {% language \"de\" %}\n        This is {{ bar }} and {{\
+        \ boo }}.\n    {% endlanguage %}"
+    library: i18n
+    meta: {}
+    name: language
+    title: Enable the given language just for this block.
+-   body: 'Use as follows: {% define "hello_world" as hello %}'
+    library: inventree_extras
+    meta:
+        Ref: https://stackoverflow.com/questions/1070398/how-to-set-a-value-of-a-variable-inside-a-template-code
+    name: define
+    title: Shortcut function to overcome the shortcomings of the django templating
+        language.
+-   body: ''
+    library: inventree_extras
+    meta: {}
+    name: decimal
+    title: Simplified rendering of a decimal number.
+-   body: ''
+    library: inventree_extras
+    meta: {}
+    name: render_date
+    title: Renders a date object as a string.
+-   body: ''
+    library: inventree_extras
+    meta: {}
+    name: str2bool
+    title: Convert a string to a boolean value.
+-   body: ''
+    library: inventree_extras
+    meta: {}
+    name: add
+    title: Add two numbers together.
+-   body: ''
+    library: inventree_extras
+    meta: {}
+    name: to_list
+    title: Return the input arguments as list.
+-   body: ''
+    library: inventree_extras
+    meta: {}
+    name: inventree_instance_name
+    title: Return the InstanceName associated with the current database.
+-   body: ''
+    library: inventree_extras
+    meta: {}
+    name: inventree_title
+    title: Return the title for the current instance - respecting the settings.
+-   body: Returns a path to an image file, which can be rendered in the web interface.
+    library: inventree_extras
+    meta: {}
+    name: inventree_logo
+    title: Return the InvenTree logo, *or* a custom logo if the user has provided
+        one.
+-   body: ''
+    library: inventree_extras
+    meta: {}
+    name: inventree_version
+    title: Return InvenTree version string.
+-   body: ''
+    library: inventree_extras
+    meta: {}
+    name: inventree_commit_hash
+    title: Return InvenTree git commit hash string.
+-   body: ''
+    library: inventree_extras
+    meta: {}
+    name: inventree_installer
+    title: Return InvenTree package installer string.
+-   body: ''
+    library: inventree_extras
+    meta: {}
+    name: inventree_commit_date
+    title: Return InvenTree git commit date string.
+-   body: '(Or return None if the setting does not exist)
+
+        if a user-setting was requested return that'
+    library: inventree_extras
+    meta: {}
+    name: setting_object
+    title: Return a setting object specified by the given key.
+-   body: ''
+    library: inventree_extras
+    meta: {}
+    name: settings_value
+    title: Return a settings value specified by the given key.
+-   body: ''
+    library: inventree_extras
+    meta: {}
+    name: inventree_customize
+    title: Return customization values for the user interface.
+-   body: "Sample usage::\n\n    {% localize off %}\n        var pi = {{ 3.1415 }};\n\
+        \    {% endlocalize %}"
+    library: l10n
+    meta: {}
+    name: localize
+    title: 'Force or prevents localization of values, regardless of the value of
+
+        `settings.USE_L10N`.'
+-   body: "Usage::\n\n    {% get_admin_log [limit] as [varname] for_user [context_var_with_user_obj]\
+        \ %}\n\nExamples::\n\n    {% get_admin_log 10 as admin_log for_user 23 %}\n\
+        \    {% get_admin_log 10 as admin_log for_user user %}\n    {% get_admin_log\
+        \ 10 as admin_log %}\n\nNote that ``context_var_containing_user_obj`` can\
+        \ be a hard-coded integer\n(user ID) or the name of a template context variable\
+        \ containing the user\nobject whose ID you want."
+    library: log
+    meta: {}
+    name: get_admin_log
+    title: Populate a template variable with the admin log for the given criteria.
+-   body: ''
+    library: markdownify
+    meta: {}
+    name: markdownify
+    title: ''
+-   body: ''
+    library: mptt_admin
+    meta: {}
+    name: mptt_result_list
+    title: Displays the headers and data list together
+-   body: "Usage::\n\n   {% full_tree_for_model [model] as [varname] %}\n\nThe model\
+        \ is specified in ``[appname].[modelname]`` format.\n\nExample::\n\n   {%\
+        \ full_tree_for_model tests.Genre as genres %}"
+    library: mptt_tags
+    meta: {}
+    name: full_tree_for_model
+    title: 'Populates a template variable with a ``QuerySet`` containing the
+
+        full tree for a given model.'
+-   body: "A drilldown tree consists of a node's ancestors, itself and its\nimmediate\
+        \ children or all descendants. For example, a drilldown tree\nfor a book category\
+        \ \"Personal Finance\" might look something like::\n\n   Books\n      Business,\
+        \ Finance & Law\n         Personal Finance\n            Budgeting (220)\n\
+        \            Financial Planning (670)\n\nUsage::\n\n   {% drilldown_tree_for_node\
+        \ [node] as [varname] %}\n\nExtended usage::\n\n   {% drilldown_tree_for_node\
+        \ [node] as [varname] all_descendants %}\n   {% drilldown_tree_for_node [node]\
+        \ as [varname] count [foreign_key] in [count_attr] %}\n   {% drilldown_tree_for_node\
+        \ [node] as [varname] cumulative count [foreign_key] in [count_attr] %}\n\n\
+        The foreign key is specified in ``[appname].[modelname].[fieldname]``\nformat,\
+        \ where ``fieldname`` is the name of a field in the specified\nmodel which\
+        \ relates it to the given node's model.\n\nWhen this form is used, a ``count_attr``\
+        \ attribute on each child of\nthe given node in the drilldown tree will contain\
+        \ a count of the\nnumber of items associated with it through the given foreign\
+        \ key.\n\nIf cumulative is also specified, this count will be for items\n\
+        related to the child node and all of its descendants.\n\nExamples::\n\n  \
+        \ {% drilldown_tree_for_node genre as drilldown %}\n   {% drilldown_tree_for_node\
+        \ genre as drilldown count tests.Game.genre in game_count %}\n   {% drilldown_tree_for_node\
+        \ genre as drilldown cumulative count tests.Game.genre in game_count %}"
+    library: mptt_tags
+    meta: {}
+    name: drilldown_tree_for_node
+    title: 'Populates a template variable with the drilldown tree for a given
+
+        node, optionally counting the number of items associated with its
+
+        children.'
+-   body: ''
+    library: mptt_tags
+    meta:
+        Usage: "\n        <ul>\n            {% recursetree nodes %}\n            \
+            \    <li>\n                    {{ node.name }}\n                    {%\
+            \ if not node.is_leaf_node %}\n                        <ul>\n        \
+            \                    {{ children }}\n                        </ul>\n \
+            \                   {% endif %}\n                </li>\n            {%\
+            \ endrecursetree %}\n        </ul>"
+    name: recursetree
+    title: 'Iterates over the nodes in the tree, and renders the contained block for
+        each node.
+
+        This tag will recursively render children into the template variable {{ children
+        }}.
+
+        Only one database query is required (children are cached for the whole tree)'
+-   body: ''
+    library: plugin_extras
+    meta: {}
+    name: plugin_list
+    title: List of all installed plugins.
+-   body: ''
+    library: plugin_extras
+    meta: {}
+    name: inactive_plugin_list
+    title: List of all inactive plugins.
+-   body: ''
+    library: plugin_extras
+    meta: {}
+    name: plugin_settings
+    title: List of all settings for the plugin.
+-   body: ''
+    library: plugin_extras
+    meta: {}
+    name: mixin_enabled
+    title: Is the mixin registered and configured in the plugin?
+-   body: ''
+    library: plugin_extras
+    meta: {}
+    name: mixin_available
+    title: Returns True if there is at least one active plugin which supports the
+        provided mixin.
+-   body: Returns None if not found
+    library: plugin_extras
+    meta: {}
+    name: safe_url
+    title: Safe lookup fnc for URLs.
+-   body: "Arguments:\n    queryset: The queryset to order\n\nKeyword Arguments:\n\
+        \    field (str): Order the queryset based on the provided field"
+    library: report
+    meta:
+        Example: "\n    {% order_queryset companies 'name' as ordered_companies %}"
+    name: order_queryset
+    title: Order a database queryset based on the provided arguments.
+-   body: "Arguments:\n    queryset: The queryset to filter\n\nKeyword Arguments:\n\
+        \    field (any): Filter the queryset based on the provided field"
+    library: report
+    meta:
+        Example: "\n    {% filter_queryset companies is_supplier=True as suppliers\
+            \ %}"
+    name: filter_queryset
+    title: Filter a database queryset based on the provided keyword arguments.
+-   body: "Arguments:\n    model_name: The name of the Django model - including app\
+        \ name (e.g. 'part.partcategory')\n\nKeyword Arguments:\n    field (any):\
+        \ Filter the queryset based on the provided field"
+    library: report
+    meta:
+        Example: "\n    {% filter_db_model 'part.partcategory' is_template=True as\
+            \ template_parts %}"
+    name: filter_db_model
+    title: Filter a database model based on the provided keyword arguments.
+-   body: This function is provideed to get around template rendering limitations.
+    library: report
+    meta:
+        Arguments: "\n    container: A python list object\n    index: The index to\
+            \ retrieve from the list"
+    name: getindex
+    title: Return the value contained at the specified index of the list.
+-   body: 'This function is provided to get around template rendering limitations.
+
+        Ref: https://stackoverflow.com/questions/1906129/dict-keys-with-spaces-in-django-templates'
+    library: report
+    meta:
+        Arguments: "\n    container: A python dict object\n    key: The 'key' to be\
+            \ found within the dict\n    backup_value: A backup value to return if\
+            \ the key is not found"
+    name: getkey
+    title: Perform key lookup in the provided dict object.
+-   body: "Arguments:\n    filename: Asset filename (relative to the 'assets' media\
+        \ directory)"
+    library: report
+    meta:
+        Raises: "\n    FileNotFoundError: If file does not exist"
+    name: asset
+    title: Return fully-qualified path for an upload report asset file.
+-   body: "Arguments:\n    filename: The filename of the image relative to the MEDIA_ROOT\
+        \ directory\n    replace_missing: Optionally return a placeholder image if\
+        \ the provided filename does not exist (default = True)\n    replacement_file:\
+        \ The filename of the placeholder image (default = 'blank_image.png')\n  \
+        \  validate: Optionally validate that the file is a valid image file\n   \
+        \ width: Optional width of the image\n    height: Optional height of the image\n\
+        \    rotate: Optional rotation to apply to the image\n\nReturns:\n    Binary\
+        \ image data to be rendered directly in a <img> tag"
+    library: report
+    meta:
+        Raises: "\n    FileNotFoundError: If the file does not exist"
+    name: uploaded_image
+    title: Return raw image data from an 'uploaded' image.
+-   body: ''
+    library: report
+    meta: {}
+    name: encode_svg_image
+    title: Return a base64-encoded svg image data string.
+-   body: "Arguments:\n    part: A Part model instance\n    preview: Return the preview\
+        \ image (default = False)\n    thumbnail: Return the thumbnail image (default\
+        \ = False)"
+    library: report
+    meta:
+        Raises: "\n    TypeError: If provided part is not a Part instance"
+    name: part_image
+    title: Return a fully-qualified path for a part image.
+-   body: "Arguments:\n    part: A Part object\n    parameter_name: The name of the\
+        \ parameter to retrieve"
+    library: report
+    meta:
+        Returns: "\n    A PartParameter object, or None if not found"
+    name: part_parameter
+    title: Return a PartParameter object for the given part and parameter name.
+-   body: "Arguments:\n    company: A Company model instance\n    preview: Return\
+        \ the preview image (default = False)\n    thumbnail: Return the thumbnail\
+        \ image (default = False)"
+    library: report
+    meta:
+        Raises: "\n    TypeError: If provided company is not a Company instance"
+    name: company_image
+    title: Return a fully-qualified path for a company image.
+-   body: '- If a custom logo has been provided, return a path to that logo
+
+        - Otherwise, return a path to the default InvenTree logo'
+    library: report
+    meta: {}
+    name: logo_image
+    title: Return a fully-qualified path for the logo image.
+-   body: Uses the InvenTree.helpers_model.construct_absolute_url function to build
+        the URL.
+    library: report
+    meta: {}
+    name: internal_link
+    title: Make a <a></a> href which points to an InvenTree URL.
+-   body: ''
+    library: report
+    meta: {}
+    name: add
+    title: Add two numbers together.
+-   body: ''
+    library: report
+    meta: {}
+    name: subtract
+    title: Subtract one number from another.
+-   body: ''
+    library: report
+    meta: {}
+    name: multiply
+    title: Multiply two numbers together.
+-   body: ''
+    library: report
+    meta: {}
+    name: divide
+    title: Divide one number by another.
+-   body: ''
+    library: report
+    meta: {}
+    name: render_currency
+    title: Render a currency / Money object.
+-   body: ''
+    library: report
+    meta:
+        kwargs: "\n    bold: Boolean, whether bold (or not)\n    italic: Boolean,\
+            \ whether italic (or not)\n    heading: str, heading level e.g. 'h3'"
+    name: render_html_text
+    title: Render a text item with some simple html tags.
+-   body: ''
+    library: report
+    meta:
+        Arguments: "\n    number: The number to be formatted\n    decimal_places:\
+            \ Number of decimal places to render\n    integer: Boolean, whether to\
+            \ render the number as an integer\n    leading: Number of leading zeros\
+            \ (default = 0)\n    separator: Character to use as a thousands separator\
+            \ (default = None)"
+    name: format_number
+    title: Render a number with optional formatting options.
+-   body: ''
+    library: report
+    meta:
+        Arguments: "\n    dt: The datetime object to format\n    timezone: The timezone\
+            \ to use for the date (defaults to the server timezone)\n    fmt: The\
+            \ format string to use (defaults to ISO formatting)"
+    name: format_datetime
+    title: Format a datetime object for display.
+-   body: ''
+    library: report
+    meta:
+        Arguments: "\n    dt: The date to format\n    timezone: The timezone to use\
+            \ for the date (defaults to the server timezone)\n    fmt: The format\
+            \ string to use (defaults to ISO formatting)"
+    name: format_date
+    title: Format a date object for display.
+-   body: "Arguments:\n    name: The name of the icon to render\n\nKeyword Arguments:\n\
+        \    class: Optional class name(s) to apply to the icon element"
+    library: report
+    meta: {}
+    name: icon
+    title: Render an icon from the icon packs.
+-   body: ''
+    library: report
+    meta: {}
+    name: include_icon_fonts
+    title: Return the CSS font-face rule for the icon fonts used on the current page
+        (or all).
+-   body: ''
+    library: rest_framework
+    meta: {}
+    name: code
+    title: ''
+-   body: ''
+    library: rest_framework
+    meta: {}
+    name: form_for_link
+    title: ''
+-   body: ''
+    library: rest_framework
+    meta: {}
+    name: render_markdown
+    title: ''
+-   body: ''
+    library: rest_framework
+    meta: {}
+    name: get_pagination_html
+    title: ''
+-   body: ''
+    library: rest_framework
+    meta: {}
+    name: render_form
+    title: ''
+-   body: ''
+    library: rest_framework
+    meta: {}
+    name: render_field
+    title: ''
+-   body: ''
+    library: rest_framework
+    meta: {}
+    name: optional_login
+    title: Include a login snippet if REST framework's login view is in the URLconf.
+-   body: ''
+    library: rest_framework
+    meta: {}
+    name: optional_docs_login
+    title: Include a login snippet if REST framework's login view is in the URLconf.
+-   body: ''
+    library: rest_framework
+    meta: {}
+    name: optional_logout
+    title: Include a logout snippet if REST framework's logout view is in the URLconf.
+-   body: ''
+    library: rest_framework
+    meta: {}
+    name: add_query_param
+    title: Add a query parameter to the current request url, and return the new url.
+-   body: ''
+    library: socialaccount
+    meta: {}
+    name: provider_login_url
+    title: '{% provider_login_url "facebook" next=bla %}
+
+        {% provider_login_url "openid" openid="http://me.yahoo.com" next=bla %}'
+-   body: ''
+    library: socialaccount
+    meta: {}
+    name: providers_media_js
+    title: ''
+-   body: ''
+    library: socialaccount
+    meta:
+        Then: "\n    {{accounts.twitter}} -- a list of connected Twitter accounts\n\
+            \    {{accounts.twitter.0}} -- the first Twitter account\n    {% if accounts\
+            \ %} -- if there is at least one social account"
+    name: get_social_accounts
+    title: '{% get_social_accounts user as accounts %}'
+-   body: 'Usage: `{% get_providers as socialaccount_providers %}`.
+
+
+        Then within the template context, `socialaccount_providers` will hold
+
+        a list of social providers configured for the current site.'
+    library: socialaccount
+    meta: {}
+    name: get_providers
+    title: Returns a list of social authentication providers.
+-   body: ''
+    library: spa_helper
+    meta: {}
+    name: spa_bundle
+    title: Render SPA bundle.
+-   body: ''
+    library: spa_helper
+    meta: {}
+    name: spa_settings
+    title: Render settings for spa.
+-   body: "Usage::\n\n    {% get_static_prefix [as varname] %}\n\nExamples::\n\n \
+        \   {% get_static_prefix %}\n    {% get_static_prefix as static_prefix %}"
+    library: static
+    meta: {}
+    name: get_static_prefix
+    title: 'Populate a template variable with the static prefix,
+
+        ``settings.STATIC_URL``.'
+-   body: "Usage::\n\n    {% get_media_prefix [as varname] %}\n\nExamples::\n\n  \
+        \  {% get_media_prefix %}\n    {% get_media_prefix as media_prefix %}"
+    library: static
+    meta: {}
+    name: get_media_prefix
+    title: 'Populate a template variable with the media prefix,
+
+        ``settings.MEDIA_URL``.'
+-   body: "Usage::\n\n    {% static path [as varname] %}\n\nExamples::\n\n    {% static\
+        \ \"myapp/css/base.css\" %}\n    {% static variable_with_path %}\n    {% static\
+        \ \"myapp/css/base.css\" as admin_base_css %}\n    {% static variable_with_path\
+        \ as varname %}"
+    library: static
+    meta: {}
+    name: static
+    title: Join the given path with the STATIC_URL setting.
+-   body: "Sample usage::\n\n    {% localtime off %}{{ value_in_utc }}{% endlocaltime\
+        \ %}"
+    library: tz
+    meta: {}
+    name: localtime
+    title: 'Force or prevent conversion of datetime objects to local time,
+
+        regardless of the value of ``settings.USE_TZ``.'
+-   body: "The ``timezone`` argument must be an instance of a ``tzinfo`` subclass,\
+        \ a\ntime zone name, or ``None``. If it is ``None``, the default time zone\
+        \ is\nused within the block.\n\nSample usage::\n\n    {% timezone \"Europe/Paris\"\
+        \ %}\n        It is {{ now }} in Paris.\n    {% endtimezone %}"
+    library: tz
+    meta: {}
+    name: timezone
+    title: Enable a given time zone just for this block.
+-   body: "Usage::\n\n    {% get_current_timezone as TIME_ZONE %}\n\nThis will fetch\
+        \ the currently active time zone and put its name\ninto the ``TIME_ZONE``\
+        \ context variable."
+    library: tz
+    meta: {}
+    name: get_current_timezone
+    title: Store the name of the current time zone in the context.
